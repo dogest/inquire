@@ -1,0 +1,31 @@
+
+<text>\n\n\n</text>
+
+<view class="weui-cells__title">请选择要查询的时间段</view>
+<view class="weui-cells">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-label">选择开始时间:</view>
+    <view class="weui-cell__bd">
+      <picker mode="date" value="{{date_start}}" start="2014-09-01" end="2100-09-01" bindchange="bindDateChange_start">
+        <view class="weui-input">{{date_start}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<text>\n</text>
+
+<view class="weui-cells">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-label">选择结束时间:</view>
+    <view class="weui-cell__bd">
+      <picker mode="date" value="{{date_end}}" start="2014-09-01" end="2100-09-01" bindchange="bindDateChange_end">
+        <view class="weui-input">{{date_end}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+<text>\n\n</text>
+
+      <button class="but" type="primary" bindtap="modalTap">查询</button>

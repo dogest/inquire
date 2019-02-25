@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/consumption_detail/consumption_detail",
+    "pages/pop_up_windows/pop_up_windows"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "消费查询",
+    "navigationBarTextStyle": "black"
+  }
+}

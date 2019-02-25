@@ -1,0 +1,26 @@
+/* pages/consumption_detail/consumption_detail.wxss */
+page{
+background-color: #00BFFF;
+}
+
+.title {
+  color:white;
+  text-align: center;
+  font-size: 50rpx;
+}
+
+.line-first{
+height: 1px;
+background:greenyellow;
+margin:0 10px
+}
+
+.line {
+height: 1px;
+background: greenyellow;
+margin:0 30px
+}
+
+.list{
+  text-align: center;
+}
