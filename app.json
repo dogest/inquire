@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/borrow_history/borrow_history",
+    "pages/borrow/borrow",
+    "pages/pop_up_windows/pop_up_windows",
+    "pages/consumption_detail/consumption_detail",
+    "pages/current_consumption/current_consumption"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "消费查询",
+    "navigationBarTextStyle": "black"
+  }
+}
