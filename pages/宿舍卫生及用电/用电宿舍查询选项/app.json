@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#262626",
+    "navigationBarTitleText": "用电查询宿舍选项",
+    "navigationBarTextStyle":"white"
+  }
+}

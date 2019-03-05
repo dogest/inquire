@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class = "container">
+<modal title="提示" confirm-text = "取消" confirm-text="确定"
+hidden="{{mHidden}}"bindconfirm="changeModel" >
+<text class = "center1">对不起，您当前输入的信息有误</text>
+</modal>
+</view>
