@@ -4,7 +4,15 @@
     "pages/borrow/borrow",
     "pages/pop_up_windows/pop_up_windows",
     "pages/consumption_detail/consumption_detail",
-    "pages/current_consumption/current_consumption"
+    "pages/current_consumption/current_consumption",
+    "pages/登录/信息错误",
+    "pages/登录/主页面",
+    "pages/登录/加载界面",
+    "pages/登录/登录界面",
+    "pages/宿舍卫生及用电/卫生成绩查询",
+    "pages/宿舍卫生及用电/宿舍查询选项",
+    "pages/宿舍卫生及用电/宿舍用电查询",
+    "pages/宿舍卫生及用电/用电宿舍查询选项"
   ],
   "window": {
     "backgroundTextStyle": "light",
