@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class = 'container'>
+  <view>
+        <button1>
+        校园卡查询        90.50元
+        </button1>
+  </view>
+   <view>
+        <button style='background-color: #E61C6E'>点击查看详情</button>
+  </view>
+</view>
+<view class = "center1">
+  <view>
+        <button2>
+        宿舍卫生及用电查询
+        </button2>
+  </view>
+  <view>
+        <button style='background-color: #09E6F7'>点击查看详情</button>
+  </view>
+</view>
+
+<view class="container">
+  <view>
+        <button3>
+        借阅图书    2本
+        </button3>
+  </view>
+  <view>
+        <button style='background-color: #FF9800'>点击查看详情</button>
+  </view>
+</view>
+
+<view class = "center1">
+  <view>
+        <button4>
+        绩点   75.60
+        </button4>
+  </view>
+  <view>
+        <button style = 'background-color: #42AA2C'>点击查看详情</button>
+  </view>
+</view>
+<view class = "center1">
+<text>
+   © 2017 Developed by MeiK\nFront-end style designed by bLue
+</text>
+</view>
+
+<!--<view class='container'>
+  <view style='background-color: #E61C6E'>
+    <label>
+    校园卡余额：200元
+    </label>
+    <button>
+    查看详情
+    </button>
+  </view>
+
+</view>-->

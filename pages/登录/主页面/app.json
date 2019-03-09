@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#262626",
+    "navigationBarTitleText": "因快尔",
+    "navigationBarTextStyle":"white"
+  }
+}
