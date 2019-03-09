@@ -1,17 +1,24 @@
 <!--pages/consumption_detail/consumption_detail.wxml-->
 <view>
-  <view class="title">\n{{head_start}}--{{heard_end}}</view>
+
+ <view>{{onLoad}}</view>
+  <view class="title">{{head_start}}--{{head_end}}</view>
+
   <view class='line-first'></view>
-  <!-- view单个节点，block多个节点 -->
-  <block wx:for="{{items}}" wx:for-item="item">
-    <text class="list" style="text-overflow:-o-ellipsis-lastline; overflow:hidden;text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:8;-webkit-box-orient:vertical; align-content: center;">
-      {{item.id}}
+
+  <view wx:if="{{items.length==0}}" class='title'>暂无信息</view>
+
+  <block wx:for="{{items}}" wx:key="" wx:for-item="item">
+
+    <view wx:if="{{items.length>0}}">
+      <text class="list" style="-webkit-line-clamp:8;display:block">
       {{item.reason}}
       {{item.amount}}
-      {{item.ext_1}}
-      {{item.ext_2}}
-      {{item.ext_3}}
      </text>
+    </view>
+
     <view class='line'></view>
+
   </block>
+  
 </view>

@@ -1,4 +1,6 @@
 <!--pages/borrow_history/borrow_history.wxml-->
+<import src = "../borrow/borrow.wxml"/>
+
 <view>
 
   <view>
@@ -9,9 +11,10 @@
 
   <view class='line-first'></view>
 
-  <!-- view单个节点，block多个节点 -->
-  <block wx:for="{{item_history}}" wx:for-item="item">
-    <text class="list" style="text-overflow:-o-ellipsis-lastline; overflow:hidden;text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:10;-webkit-box-orient:vertical; align-content: center;">
+  <view wx:if="{{item_history.length==0}}" class='title'>暂无信息</view>
+  
+  <block wx:for="{{item_history}}" wx:key="id" wx:for-item="item">
+    <text class="list" style="-webkit-line-clamp:10;display:block">
       {{item.title}}
       {{item.author}}
       {{item.borrow_date}}

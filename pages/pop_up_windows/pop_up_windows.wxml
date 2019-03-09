@@ -26,6 +26,8 @@
   </view>
 </view>
 
+<!-- <view>{{judge_data}}</view>  -->
+
 <text>\n\n</text>
 
-      <button class="but" type="primary" bindtap="modalTap">查询</button>
+<button class="but" type="primary" bindtap="modalTap">查询</button>

@@ -1,29 +1,14 @@
+var util = require('../../utils/util.js'); 
 Page({
-  onShareAppMessage() {
-    return {
-      title: '消费查询',
-      path: 'pages/pop_up_windows/pop_up_windows'
-    }
-  },
-
   data: {
     modalHidden: true,
-    date_star: '',
+    date_start: '',
     date_end: ''
   },
-  
-  modalTap() {
-    wx.showModal({
-      title: '提示',
-      content: '没有消费相关的记录',
-      showCancel: false,
-      confirmText: '确定'
-    })
-  },
 
-    bindDateChange_start(e) {
+  bindDateChange_start(e) {
     this.setData({
-      date_start: e.detail.value
+      date_start: e.detail.value,
     })
   },
 
@@ -31,5 +16,34 @@ Page({
     this.setData({
       date_end: e.detail.value
     })
+  },
+
+  modalTap:function(){
+
+    var start1 = this.data.date_start;
+    var end1 = this.data.date_end;
+    var start = new Date(start1.replace(/-/g,"/"));
+    var end = new Date(end1.replace(/-/g,"/"));
+
+    if(start1 == "" || start1 == null || start1 == undefined)
+    {
+      start1 = util.formatTime(new Date())
+    }
+    if(end1 == "" || end1 == null || end1 == undefined)
+    {
+      end1 = util.formatTime(new Date())
+    }
+
+    if (end.getTime() - start.getTime() < 0) {
+      wx.navigateTo({
+        url: '../consumption_detail/consumption_detail?start=' + end1 + '&end=' + start1
+      })
+      }
+    else{
+    wx.navigateTo({
+      url: '../consumption_detail/consumption_detail?start=' + start1 + '&end=' + end1
+    })
+    }
   }
+
 })

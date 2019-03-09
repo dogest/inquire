@@ -1,21 +1,46 @@
 // pages/consumption_detail/consumption_detail.js
+var util = require('../../utils/util.js'); 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-
+  onShareAppMessage: function () {
+    return {
+      title: "历史消费",
+      path: "/pages/consumption_detail/consumption_detail"
+    }
+  },
     data: {
-      head: "2018/12/05--2018/12/25",
+      head_start:'',
+      head_end: '',
       items: [
         {
-          "id": "id:",
           "reason": "消费原因：用水支出",
-          "amount": "消费金额：0.13",
-          "ext_1": "ext_1:",
-          "ext_2": "ext_2:",
-          "ext_3": "ext_3:"
+          "amount": "消费金额：0.13"
         }
       ]
-    }
+    },
+  onLoad: function (option) {
+this.setData({
+  head_start:option.start,
+  head_end:option.end
 })
+  }
+})
+ // var num = wx.getStorage('date_start');
+    // var sum = wx.getStorage('date_end')
+    // if ((num == "" || num == null || num == undefined) && (sum != "" || sum != null || sum != undefined))
+    // {
+    //   this.setData({
+    //     head_start: util.formatTime(new Date()),
+    //     head_end:sum
+    //   })
+    // }
+    // else if ((sum == "" || sum == null || sum == undefined) && (num != "" || num != null || num != undefined)) {
+    //   this.setData({
+    //     head_end: util.formatTime(new Date()),
+    //     head_start:num
+    //   })
+    // }
+    // else{
+    // this.setData({
+    //   head_start: num,
+    //   head_end: sum
+    // })

@@ -5,71 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item_history: [
-      {
-        "title": "图书名：",
-        "author": "图书作者：",
-        "borrow_date": "借阅时间：",
-        "back_date": "应还时间：",
-        "bar_code": "bar_code:",
-        "book_url": "网站链接：",
-        "site": "借书地址："
-      }
-    ],
+    item_history: [],
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+ modalTap() {
+    wx.showModal({
+      title: '提示',
+      content: '没有借阅相关的记录',
+      showCancel: false,
+      confirmText: '确定'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-
+    return{
+      title:"历史借阅",
+      path:"/pages/borrow_history/borrow_history"
+    }
   }
 })

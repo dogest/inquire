@@ -1,0 +1,27 @@
+<!--pages/index/index.wxml-->
+<view>
+
+  <view class='flex-wrp-row'>
+    <text class="title">近期交易</text>
+
+    <button class="but" bindtap="modalTap">历史查询</button>
+  </view>
+
+  <view style="position:fixed;bottom:0;right:0"></view>
+
+  <view class='line-first'></view>
+  <view wx:if="{{items.length==0}}" class='title'>暂无信息</view>
+  <!-- view单个节点，block多个节点 -->
+  <block wx:for="{{items}}" wx:key="time" wx:for-item="item">
+    <text class="list" style="-webkit-line-clamp:8;display:block">
+      {{item.time}}
+      {{item.reason}}
+      {{item.amount}}
+      {{item.balance}}
+      {{item.position}}
+      {{item.trem_name}} 
+     </text>
+    <view class='line'></view>
+  </block>
+
+</view>

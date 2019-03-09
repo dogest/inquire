@@ -1,0 +1,5 @@
+borrow:近期借阅详情
+borrow_history:历史借阅详情
+consumption_detail:历史消费详情
+pop_up_windows:选择查询消费时间
+recent_consumption:近期消费

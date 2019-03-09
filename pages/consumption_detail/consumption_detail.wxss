@@ -1,10 +1,10 @@
 /* pages/consumption_detail/consumption_detail.wxss */
 page{
-background-color: #00BFFF;
+background-color: #f5fffa;
 }
 
 .title {
-  color:white;
+  color:rgb(176, 176, 230);
   text-align: center;
   font-size: 50rpx;
 }
