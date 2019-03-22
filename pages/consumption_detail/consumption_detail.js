@@ -24,23 +24,3 @@ this.setData({
 })
   }
 })
- // var num = wx.getStorage('date_start');
-    // var sum = wx.getStorage('date_end')
-    // if ((num == "" || num == null || num == undefined) && (sum != "" || sum != null || sum != undefined))
-    // {
-    //   this.setData({
-    //     head_start: util.formatTime(new Date()),
-    //     head_end:sum
-    //   })
-    // }
-    // else if ((sum == "" || sum == null || sum == undefined) && (num != "" || num != null || num != undefined)) {
-    //   this.setData({
-    //     head_end: util.formatTime(new Date()),
-    //     head_start:num
-    //   })
-    // }
-    // else{
-    // this.setData({
-    //   head_start: num,
-    //   head_end: sum
-    // })

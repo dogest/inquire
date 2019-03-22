@@ -1,12 +1,8 @@
 <!--pages/index/index.wxml-->
 <view>
-
-  <view class='flex-wrp-row'>
-    <text class="title">近期交易</text>
-
-    <button class="but" bindtap="modalTap">历史查询</button>
-  </view>
-
+<text>\n\n</text>
+<view class = "center1">近期交易</view>
+<text>\n</text>
   <view style="position:fixed;bottom:0;right:0"></view>
 
   <view class='line-first'></view>
@@ -23,5 +19,8 @@
      </text>
     <view class='line'></view>
   </block>
-
+  <text>\n\n</text>
+ <view class='flex-wrp-row'>
+    <button class="but" bindtap="modalTap">历史查询</button>
+  </view>
 </view>

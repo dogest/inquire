@@ -3,7 +3,7 @@
 
  <view>{{onLoad}}</view>
   <view class="title">{{head_start}}--{{head_end}}</view>
-
+<text>\n\n</text>
   <view class='line-first'></view>
 
   <view wx:if="{{items.length==0}}" class='title'>暂无信息</view>
@@ -14,11 +14,10 @@
       <text class="list" style="-webkit-line-clamp:8;display:block">
       {{item.reason}}
       {{item.amount}}
+      <text>\n</text>
      </text>
     </view>
-
     <view class='line'></view>
-
   </block>
   
 </view>

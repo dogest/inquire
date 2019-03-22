@@ -1,16 +1,23 @@
 {
-  "pages": [
+  "pages":[
+    "pages/home_register/home_register",
+    "pages/home/home",
+    "pages/grade/grade",
+    "pages/home_load/home_load",
+    "pages/error/error",
+    "pages/dormitory_select/dormitory_select",
+    "pages/electro-register/electro-register",
+    "pages/consumption_detail/consumption_detail",
     "pages/pop_up_windows/pop_up_windows",
     "pages/recent_consumption/recent_consumption",
     "pages/borrow/borrow",
-    "pages/consumption_detail/consumption_detail",
     "pages/borrow_history/borrow_history"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#262626",
     "navigationBarTitleText": "消费查询",
-    "navigationBarTextStyle": "black",
-    "navigationStyle":"default"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default"
   }
 }

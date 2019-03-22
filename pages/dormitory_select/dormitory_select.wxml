@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<!--index.wxml-->
+<view class = 'container'>
+  <view>
+        <button1 bindtap="changeToTest11">
+    <text space="ensp">宿舍用电查询</text>
+        </button1>
+  </view>
+   <view>
+        <button style='background-color: #E61C6E' bindtap="changeToTest11">点击查看详情</button>
+  </view>
+</view>
+<view class = "container">
+  <view>
+        <button2 bindtap="changeToTest12">
+        <text space="ensp">宿舍卫生查询</text>
+        </button2>
+  </view>
+  <view>
+        <button style='background-color: #09E6F7' bindtap="changeToTest12">点击查看详情</button>
+  </view>
+</view>

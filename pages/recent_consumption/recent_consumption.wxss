@@ -37,3 +37,6 @@ margin:0 30px
   width: 250rpx;
   height: 70rpx;
 }
+.center1{
+     text-align:center;
+}

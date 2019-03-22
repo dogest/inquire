@@ -86,5 +86,13 @@ Page({
     wx.navigateTo({
       url: '../borrow_history/borrow_history'
     })
-   }
+  },
+  modalTap1() {
+    wx.showModal({
+      title: '提示',
+      content: '没有借阅相关的记录',
+      showCancel: false,
+      confirmText: '确定'
+    })
+  }, 
 })

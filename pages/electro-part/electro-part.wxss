@@ -1,0 +1,44 @@
+/* pages/borrow_history/borrow_history.wxss */
+page{
+background-color:  #66CC66;
+}
+
+.title {
+  text-align: center;
+  font-size: 50rpx;
+}
+
+.line-first{
+height: 1px;
+background:greenyellow;
+margin:0 10px
+}
+
+.line {
+height: 1px;
+background: greenyellow;
+margin:0 30px
+}
+
+.list{
+  text-align: center;
+}
+.top{
+  width: 100px;
+  height: 30px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+  background-color: #009900;
+  color: ;
+  text-align: center;
+  line-height: 30px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.center1{
+     text-align:center;
+}

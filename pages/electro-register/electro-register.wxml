@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<text>\n\n\n\n\n\n</text>
+ <view class = "center1">
+ <view class="phone_one" bindtap="clickPerson">
+  <view class="phone_personal" style='color: grey'>请选择公寓楼号</view>
+  </view>
+  </view>
+ 
+<view class="person_box">
+   <view class="phone_select" hidden="{{selectPerson}}">
+    <view class="select_one" bindtap="mySelect" data-me="1号公寓南（西校区）">1号公寓南（西校区）</view>
+    <view class="select_one" bindtap="mySelect" data-me="1号公寓北（西校区）">1号公寓北（西校区）</view>
+    <view class="select_one" bindtap="mySelect" data-me="2号公寓南（西校区）">2号公寓南（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="2号公寓北（西校区）">2号公寓北（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="3号公寓南（西校区）">3号公寓南（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="3号公寓北（西校区）">3号公寓北（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="4号公寓南（西校区）">4号公寓南（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="4号公寓北（西校区）">4号公寓北（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="5号公寓（西校区）">5号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="6号公寓（西校区）">6号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="7号公寓（西校区）">7号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="8号公寓（西校区）">8号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="9号公寓（西校区）">9号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="10号公寓（西校区）">10号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="11号公寓（西校区）">11号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="12号公寓（西校区）">12号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="13号公寓南（西校区）">13号公寓南（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="13号公寓北（西校区）">13号公寓北（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="14号公寓（西校区）">14号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="15号公寓（西校区）">15号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="16号公寓（西校区）">16号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="17号公寓（西校区）">17号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="18号公寓（西校区）">18号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="19号公寓（西校区）">19号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="20号公寓（西校区）">20号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="21号公寓（西校区）">21号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="22号公寓（西校区）">22号公寓（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="研究生公寓男（西校区）">研究生公寓男（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="研究生公寓女（西校区）">研究生公寓女（西校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="1号公寓（东校区）">1号公寓（东校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="2号公寓（东校区）">2号公寓（东校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="4号公寓（东校区）">4号公寓（东校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="6号公寓（东校区）">6号公寓（东校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="8号公寓（东校区）">8号公寓（东校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="9号公寓（东校区）">9号公寓（东校区)</view>
+    <view class="select_one" bindtap="mySelect" data-me="10号公寓（东校区）">10号公寓（东校区)</view>
+  </view>
+ </view>
+
+<text>\n</text>
+
+
+<view class = "center1">
+<text>\t</text>
+<view class="itemView">
+    <input class="input" name="userName" placeholder="请输入宿舍门牌号"
+    bindinput="userNameInput"/>
+  </view>
+</view>
+
+  <!--按钮-->
+ <view class="loginBtnView"> 
+  <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login" bindtap="changeToTest111">查询</button> 
+ </view> 

@@ -1,0 +1,37 @@
+<!--pages/borrow_history/borrow_history.wxml-->
+<view>
+
+  <view style="position:fixed;bottom:0;right:0"></view>
+
+  <view class='line-first'></view>
+
+  <!-- view单个节点，block多个节点 -->
+  <block wx:for="{{item_history}}" wx:for-item="item">
+    <text class="list" style="text-overflow:-o-ellipsis-lastline; overflow:hidden;text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:10;-webkit-box-orient:vertical; align-content: center;">
+      {{item.number}}
+      {{item.number1}}
+      {{item.week}}
+      {{item.time}}
+      {{item.grade}} 
+     </text>
+     <text>\n</text>
+    <view class='line'></view>
+  </block>
+
+   <block wx:for="{{item_history}}" wx:for-item="item">
+    <text class="list" style="text-overflow:-o-ellipsis-lastline; overflow:hidden;text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:10;-webkit-box-orient:vertical; align-content: center;">
+      {{item.number}}
+      {{item.number1}}
+      {{item.week}}
+      {{item.time}}
+      {{item.grade}} 
+     </text>
+     <text>\n</text>
+    <view class='line'></view>
+  </block>
+<view class='top' catchtap='returnTop'>
+<view class = 'center1'>
+顶部
+</view>
+</view>
+</view>
