@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="h-header">绑定学号</view>
+  </view>
+  <view class="page__bd">
+    <wux-cell-group>
+      <wux-cell hover-class="none">
+        <wux-input
+          label="学号"
+          placeholder="数字学号"
+          type="number"
+          value="{{username}}"
+          controlled
+          bind:change="onUsernameChange"
+        />
+      </wux-cell>
+      <wux-cell hover-class="none">
+        <wux-input
+          label="密码"
+          placeholder="统一登录平台密码"
+          password
+          value="{{password}}"
+          controlled
+          bind:change="onPasswordChange"
+        />
+      </wux-cell>
+    </wux-cell-group>
+
+    <view class="page__bd_spacing mt-64">
+      <wux-button block type="positive" bind:tap="onSubmit">绑定</wux-button>
+    </view>
+  </view>
+</view>

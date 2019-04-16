@@ -1,23 +1,26 @@
 {
-  "pages":[
-    "pages/home_register/home_register",
-    "pages/home/home",
-    "pages/grade/grade",
-    "pages/home_load/home_load",
-    "pages/error/error",
-    "pages/dormitory_select/dormitory_select",
-    "pages/electro-register/electro-register",
-    "pages/consumption_detail/consumption_detail",
-    "pages/pop_up_windows/pop_up_windows",
-    "pages/recent_consumption/recent_consumption",
-    "pages/borrow/borrow",
-    "pages/borrow_history/borrow_history"
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/login/index",
+    "pages/home/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#262626",
-    "navigationBarTitleText": "消费查询",
-    "navigationBarTextStyle": "white",
-    "navigationStyle": "default"
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "因快儿",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "wux-button": "./libs/wux-weapp/button/index",
+    "wux-icon": "./libs/wux-weapp/icon/index",
+    "wux-input": "./libs/wux-weapp/input/index",
+    "wux-cell-group": "./libs/wux-weapp/cell-group/index",
+    "wux-cell": "./libs/wux-weapp/cell/index",
+    "wux-wing-blank": "./libs/wux-weapp/wing-blank/index",
+    "wux-card": "./libs/wux-weapp/card/index"
+  },
+  "networkTimeout": {
+    "request": 30000
   }
 }

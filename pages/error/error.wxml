@@ -1,6 +1,0 @@
-<view class='container'>
-  <modal title="提示">
-    <view class = "center1">对不起，您输入的信息有误</view>
-  </modal>
-
-</view>

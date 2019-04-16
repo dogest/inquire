@@ -1,0 +1,9 @@
+<view class="page">
+  <view class="page__bd">
+    <wux-wing-blank size="default">
+      <qcard title="校园卡" status="{{status.card}}">
+        <text>余额：¥{{balance}}</text>
+      </qcard>
+    </wux-wing-blank>
+  </view>
+</view>

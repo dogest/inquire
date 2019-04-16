@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import './libs/wux-weapp/styles/index.wxss';
+
 .container {
   height: 100%;
   display: flex;
@@ -7,4 +9,114 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+
+page {
+  width: 100%;
+  /*height: 100%;*/
+  position: relative;
+  /*color: #333;*/
+  /*background-color: #f8f8f8;*/
+  /*font-size: 16px;*/
+  font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Helvetica, Microsoft YaHei, Arial, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page__hd {
+  padding: 75rpx 45rpx 60rpx;
+}
+
+.page__bd {
+  padding-bottom: 40rpx;
+}
+
+.page__bd_spacing {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.page__ft{
+  padding-bottom: 10rpx;
+  text-align: center;
+}
+
+.h-header {
+  font-size: 64rpx;
+  font-weight: 600;
+}
+
+/*margin*/
+
+.mt-8 {
+  margin-top: 8rpx;
+}
+
+.mt-16 {
+  margin-top: 16rpx;
+}
+
+.mt-20 {
+  margin-top: 20rpx;
+}
+
+.mt-32 {
+  margin-top: 32rpx;
+}
+
+.mt-64 {
+  margin-top: 64rpx;
+}
+
+.mb-8 {
+  margin-bottom: 8rpx;
+}
+
+.mb-16 {
+  margin-bottom: 16rpx;
+}
+
+.mb-20 {
+  margin-bottom: 20rpx;
+}
+
+.mb-32 {
+  margin-bottom: 32rpx;
+}
+
+.mb-64 {
+  margin-bottom: 64rpx;
+}
+
+.ml-8 {
+  margin-left: 8rpx;
+}
+
+.ml-16 {
+  margin-left: 16rpx;
+}
+
+.ml-20 {
+  margin-left: 20rpx;
+}
+
+.ml-32 {
+  margin-left: 32rpx;
+}
+
+.mr-8 {
+  margin-right: 8rpx;
+}
+
+.mr-16 {
+  margin-right: 16rpx;
+}
+
+.mr-20 {
+  margin-right: 20rpx;
+}
+
+.mr-32 {
+  margin-right: 32rpx;
+}
