@@ -2,6 +2,7 @@
   <wux-card title="{{title}}" extra="" wux-class="card-container" bordered="{{false}}" showHover>
     <view slot="body" class="card-body">
       <slot wx:if="{{status === enumStatus.success}}"></slot>
+      <image src="../../assets/creditcard.svg" class="card-image"></image>
     </view>
     <view slot="footer" class="card-footer">查看更多</view>
   </wux-card>
