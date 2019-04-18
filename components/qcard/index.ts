@@ -27,6 +27,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    fetch() {
+      // @ts-ignore
+      this.triggerEvent('fetch');
+    },
   },
 });

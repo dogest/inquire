@@ -63,6 +63,9 @@ Page({
   },
 
   async fetchCard() {
+    this.setData!({
+      'status.card': EnumApiStatus.fetching,
+    });
     try {
       const ret = await contractCardBalance();
       console.log(ret);

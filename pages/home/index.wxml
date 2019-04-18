@@ -1,7 +1,7 @@
 <view class="page">
   <view class="page__bd">
     <wux-wing-blank size="default">
-      <qcard title="校园卡" status="{{status.card}}">
+      <qcard title="校园卡" status="{{status.card}}" bind:fetch="fetchCard">
         <text>余额：¥{{balance}}</text>
       </qcard>
     </wux-wing-blank>

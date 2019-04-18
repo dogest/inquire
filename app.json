@@ -18,7 +18,8 @@
     "wux-cell-group": "./libs/wux-weapp/cell-group/index",
     "wux-cell": "./libs/wux-weapp/cell/index",
     "wux-wing-blank": "./libs/wux-weapp/wing-blank/index",
-    "wux-card": "./libs/wux-weapp/card/index"
+    "wux-card": "./libs/wux-weapp/card/index",
+    "wux-spin": "./libs/wux-weapp/spin/index"
   },
   "networkTimeout": {
     "request": 30000
