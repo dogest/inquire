@@ -9,3 +9,7 @@
 .card-bg-score {
   background-image: linear-gradient(180deg, #FFFFFF 0%, #DFFFE4 100%);
 }
+
+.card-bg-dormitory {
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #DFE5FF 100%);
+}

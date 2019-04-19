@@ -2,6 +2,7 @@ import { contractCardBalance } from '../../contracts/card';
 import { EnumApiStatus } from '../../enums/index';
 import { contractLibraryBorrow } from '../../contracts/library';
 import { contractScore } from '../../contracts/score';
+import { contractDormitoryHealth } from '../../contracts/dormitory';
 
 Page({
 
@@ -13,10 +14,13 @@ Page({
       card: EnumApiStatus.fetching,
       library: EnumApiStatus.fetching,
       score: EnumApiStatus.fetching,
+      dormitory: EnumApiStatus.fetching,
     },
     balance: undefined,
     borrowNum: undefined,
     score: undefined,
+    dormitoryScore: undefined,
+    dormitoryScoreWeek: undefined,
   },
 
   /**
@@ -26,6 +30,7 @@ Page({
     this.fetchCard();
     this.fetchLibrary();
     this.fetchScore();
+    this.fetchDormitoryHealth();
   },
 
   /**
@@ -132,6 +137,29 @@ Page({
     } catch (e) {
       this.setData!({
         'status.score': EnumApiStatus.fail,
+      });
+    }
+  },
+
+  async fetchDormitoryHealth() {
+    this.setData!({
+      'status.dormitory': EnumApiStatus.fetching,
+    });
+    try {
+      const ret = await contractDormitoryHealth(undefined, {
+        autoError: 'none',
+      });
+      console.log(ret);
+      if (!ret.error) {
+        this.setData!({
+          dormitoryScore: ret.data[0] ? ret.data[0].score : null,
+          dormitoryScoreWeek: ret.data[0] ? ret.data[0].week : null,
+          'status.dormitory': EnumApiStatus.success,
+        });
+      }
+    } catch (e) {
+      this.setData!({
+        'status.dormitory': EnumApiStatus.fail,
       });
     }
   },

@@ -30,6 +30,17 @@
       >
         <text>绩点：{{score}}</text>
       </qcard>
+
+      <qcard
+        title="宿舍"
+        image="../../assets/home.svg"
+        card-class="card-bg-dormitory"
+        status="{{status.dormitory}}"
+        bind:fetch="fetchDormitory"
+      >
+        <text wx:if="{{dormitoryScoreWeek}}">第 {{dormitoryScoreWeek}} 周卫生成绩：{{dormitoryScore}}</text>
+        <text wx:else>暂无卫生成绩</text>
+      </qcard>
     </wux-wing-blank>
   </view>
 </view>

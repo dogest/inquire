@@ -9,6 +9,8 @@ const api = {
   cardSummary: '/card/summary',
   libraryBorrow: '/library/borrow',
   score: '/score',
+  dormitoryInfo: '/dormitory/info',
+  dormitoryHealth: '/dormitory/health',
 };
 
 export default api;
