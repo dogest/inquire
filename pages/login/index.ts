@@ -1,6 +1,7 @@
 import storageKey from '../../configs/storages';
 import { contractUserToken } from '../../contracts/user';
 import pages from '../../configs/pages';
+import generalConfigs from '../../configs/general';
 
 Page({
 
@@ -87,6 +88,10 @@ Page({
       wx.setStorage({
         key: storageKey.token,
         data: token,
+      });
+      wx.setStorage({
+        key: storageKey.tokenExpires,
+        data: `${Date.now() + generalConfigs.tokenLifetime}`,
       });
       wx.setStorage({
         key: storageKey.userId,

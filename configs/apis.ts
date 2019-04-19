@@ -7,6 +7,8 @@ const api = {
   cardBalance: '/card/balance',
   cardConsume: '/card/consume',
   cardSummary: '/card/summary',
+  libraryBorrow: '/library/borrow',
+  score: '/score',
 };
 
 export default api;

@@ -6,7 +6,7 @@ export interface IWXRequestOptions {
   data?: IAnyObject;
   header?: IAnyObject;
   loadingText?: string; // 加载中的文案，值为有效字符串时显示
-  autoError?: 'none' | 'toast' | 'dialog'; // 错误时的自动提示，可选 toast 或 dialog 模式。默认为 none，不显示错误信息
+  autoError?: 'none' | 'toast' | 'dialog'; // 错误时的自动提示，可选 toast 或 dialog 模式。默认为 dialog
 }
 
 export type IRequestOptions = Pick<IWXRequestOptions, 'header' | 'loadingText' | 'autoError'>;

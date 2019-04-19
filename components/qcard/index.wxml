@@ -1,14 +1,14 @@
 <wux-spin nested spinning="{{status === enumStatus.fetching}}">
-  <view class="card">
-    <wux-card title="{{title}}" extra="" wux-class="card-container" bordered="{{false}}" showHover>
-      <view slot="body" class="card-body">
+  <view class="qcard">
+    <wux-card title="{{title}}" extra="" wux-class="qcard-container {{cardClass}}" bordered="{{false}}" showHover>
+      <view slot="body" class="qcard-body">
         <slot wx:if="{{status === enumStatus.success}}"></slot>
         <view wx:elif="{{status === enumStatus.fail}}">
           <wux-button outline type="stable" style="display: flex; justify-content: center;" bind:click="fetch">重试</wux-button>
         </view>
-        <image src="../../assets/creditcard.svg" class="card-image"></image>
+        <image src="{{image}}" class="qcard-image"></image>
       </view>
-      <view slot="footer" class="card-footer">{{status === enumStatus.success ? '查看更多' : '　'}}</view>
+      <view slot="footer" class="qcard-footer">{{status === enumStatus.success ? '查看更多' : '　'}}</view>
     </wux-card>
   </view>
 </wux-spin>

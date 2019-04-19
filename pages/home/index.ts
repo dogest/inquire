@@ -1,5 +1,7 @@
 import { contractCardBalance } from '../../contracts/card';
 import { EnumApiStatus } from '../../enums/index';
+import { contractLibraryBorrow } from '../../contracts/library';
+import { contractScore } from '../../contracts/score';
 
 Page({
 
@@ -9,8 +11,12 @@ Page({
   data: {
     status: {
       card: EnumApiStatus.fetching,
+      library: EnumApiStatus.fetching,
+      score: EnumApiStatus.fetching,
     },
     balance: undefined,
+    borrowNum: undefined,
+    score: undefined,
   },
 
   /**
@@ -18,6 +24,8 @@ Page({
    */
   onLoad(_query: { [queryKey: string]: string }) {
     this.fetchCard();
+    this.fetchLibrary();
+    this.fetchScore();
   },
 
   /**
@@ -67,7 +75,9 @@ Page({
       'status.card': EnumApiStatus.fetching,
     });
     try {
-      const ret = await contractCardBalance();
+      const ret = await contractCardBalance(undefined, {
+        autoError: 'none',
+      });
       console.log(ret);
       if (!ret.error) {
         this.setData!({
@@ -78,6 +88,50 @@ Page({
     } catch (e) {
       this.setData!({
         'status.card': EnumApiStatus.fail,
+      });
+    }
+  },
+
+  async fetchLibrary() {
+    this.setData!({
+      'status.library': EnumApiStatus.fetching,
+    });
+    try {
+      const ret = await contractLibraryBorrow(undefined, {
+        autoError: 'none',
+      });
+      console.log(ret);
+      if (!ret.error) {
+        this.setData!({
+          borrowNum: ret.data.info.length,
+          'status.library': EnumApiStatus.success,
+        });
+      }
+    } catch (e) {
+      this.setData!({
+        'status.library': EnumApiStatus.fail,
+      });
+    }
+  },
+
+  async fetchScore() {
+    this.setData!({
+      'status.score': EnumApiStatus.fetching,
+    });
+    try {
+      const ret = await contractScore(undefined, {
+        autoError: 'none',
+      });
+      console.log(ret);
+      if (!ret.error) {
+        this.setData!({
+          score: ret.data.grade,
+          'status.score': EnumApiStatus.success,
+        });
+      }
+    } catch (e) {
+      this.setData!({
+        'status.score': EnumApiStatus.fail,
       });
     }
   },

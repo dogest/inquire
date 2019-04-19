@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var generalConfigs = {
+    tokenLifetime: 7 * 24 * 60 * 60 * 1000,
+};
+exports.default = generalConfigs;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2VuZXJhbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImdlbmVyYWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxJQUFNLGNBQWMsR0FBRztJQUNyQixhQUFhLEVBQUUsQ0FBQyxHQUFHLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxHQUFHLElBQUk7Q0FDdkMsQ0FBQztBQUVGLGtCQUFlLGNBQWMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IGdlbmVyYWxDb25maWdzID0ge1xuICB0b2tlbkxpZmV0aW1lOiA3ICogMjQgKiA2MCAqIDYwICogMTAwMCxcbn07XG5cbmV4cG9ydCBkZWZhdWx0IGdlbmVyYWxDb25maWdzO1xuIl19

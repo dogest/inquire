@@ -14,6 +14,14 @@ Component({
       type: String,
       value: '',
     },
+    image: {
+      type: String,
+      value: '',
+    },
+    cardClass: {
+      type: String,
+      value: '',
+    },
   },
 
   /**

@@ -1,0 +1,11 @@
+.card-bg-card {
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FEDFFF 100%);
+}
+
+.card-bg-library {
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #D7F0FF 100%);
+}
+
+.card-bg-score {
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #DFFFE4 100%);
+}
