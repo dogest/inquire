@@ -3,7 +3,7 @@
     <wux-card title="{{title}}" extra="" wux-class="qcard-container {{cardClass}}" bordered="{{false}}" showHover>
       <view slot="body" class="qcard-body">
         <slot wx:if="{{status === enumStatus.success}}"></slot>
-        <view wx:elif="{{status === enumStatus.fail}}">
+        <view wx:elif="{{status === enumStatus.fail}}" style="position: absolute; width: 100%; left: 0;">
           <wux-button outline type="stable" style="display: flex; justify-content: center;" bind:click="fetch">重试</wux-button>
         </view>
         <image src="{{image}}" class="qcard-image"></image>

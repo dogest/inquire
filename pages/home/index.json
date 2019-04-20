@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "qcard": "../components/qcard/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

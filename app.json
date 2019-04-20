@@ -5,7 +5,7 @@
     "pages/home/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "因快儿",
     "navigationBarTextStyle": "black"
