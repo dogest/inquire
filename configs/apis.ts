@@ -11,6 +11,7 @@ const api = {
   score: '/score',
   dormitoryInfo: '/dormitory/info',
   dormitoryHealth: '/dormitory/health',
+  dormitoryEnergy: '/dormitory/energy',
 };
 
 export default api;

@@ -2,7 +2,7 @@ import { contractCardBalance } from '../../contracts/card';
 import { EnumApiStatus } from '../../enums/index';
 import { contractLibraryBorrow } from '../../contracts/library';
 import { contractScore } from '../../contracts/score';
-import { contractDormitoryHealth } from '../../contracts/dormitory';
+import { contractDormitoryEnergy, contractDormitoryHealth, contractDormitoryInfo } from '../../contracts/dormitory';
 
 Page({
 
@@ -14,23 +14,22 @@ Page({
       card: EnumApiStatus.fetching,
       library: EnumApiStatus.fetching,
       score: EnumApiStatus.fetching,
-      dormitory: EnumApiStatus.fetching,
+      dormitoryHealth: EnumApiStatus.fetching,
+      dormitoryEnergy: EnumApiStatus.fetching,
     },
     balance: undefined,
     borrowNum: undefined,
     score: undefined,
-    dormitoryScore: undefined,
-    dormitoryScoreWeek: undefined,
+    dormitoryHealth: undefined,
+    dormitoryHealthWeek: undefined,
+    dormitoryEnergy: undefined,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(_query: { [queryKey: string]: string }) {
-    this.fetchCard();
-    this.fetchLibrary();
-    this.fetchScore();
-    this.fetchDormitoryHealth();
+    this.fetchAll();
   },
 
   /**
@@ -65,7 +64,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.fetchAll();
   },
 
   /**
@@ -143,7 +142,7 @@ Page({
 
   async fetchDormitoryHealth() {
     this.setData!({
-      'status.dormitory': EnumApiStatus.fetching,
+      'status.dormitoryHealth': EnumApiStatus.fetching,
     });
     try {
       const ret = await contractDormitoryHealth(undefined, {
@@ -152,15 +151,54 @@ Page({
       console.log(ret);
       if (!ret.error) {
         this.setData!({
-          dormitoryScore: ret.data[0] ? ret.data[0].score : null,
-          dormitoryScoreWeek: ret.data[0] ? ret.data[0].week : null,
-          'status.dormitory': EnumApiStatus.success,
+          dormitoryHealth: ret.data[0] ? ret.data[0].score : null,
+          dormitoryHealthWeek: ret.data[0] ? ret.data[0].week : null,
+          'status.dormitoryHealth': EnumApiStatus.success,
         });
       }
     } catch (e) {
       this.setData!({
-        'status.dormitory': EnumApiStatus.fail,
+        'status.dormitoryHealth': EnumApiStatus.fail,
       });
     }
+  },
+
+  async fetchDormitoryEnergy() {
+    this.setData!({
+      'status.dormitoryEnergy': EnumApiStatus.fetching,
+    });
+    try {
+      const infoRet = await contractDormitoryInfo(undefined, {
+        autoError: 'none',
+      });
+      console.log(infoRet);
+      if (!infoRet.error) {
+        const floor = infoRet.data.rawFloor;
+        const room = (/\d+$/.exec(infoRet.data.room) || [])[0];
+        const energyRet = await contractDormitoryEnergy({ floor, room }, {
+          autoError: 'none',
+        });
+        console.log(energyRet);
+        if (!energyRet.error) {
+          this.setData!({
+            dormitoryEnergy: energyRet.data.energy,
+            'status.dormitoryEnergy': EnumApiStatus.success,
+          });
+        }
+      }
+    } catch (e) {
+      this.setData!({
+        'status.dormitoryEnergy': EnumApiStatus.fail,
+      });
+    }
+  },
+
+  fetchAll() {
+    console.log('fetchAll');
+    this.fetchCard();
+    this.fetchLibrary();
+    this.fetchScore();
+    this.fetchDormitoryHealth();
+    this.fetchDormitoryEnergy();
   },
 });

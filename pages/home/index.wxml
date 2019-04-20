@@ -12,13 +12,24 @@
       </qcard>
 
       <qcard
-        title="图书借阅"
-        image="../../assets/read.svg"
-        card-class="card-bg-library"
-        status="{{status.library}}"
-        bind:fetch="fetchLibrary"
+        title="宿舍电量"
+        image="../../assets/thunderbolt.svg"
+        card-class="card-bg-dormitory-energy"
+        status="{{status.dormitoryEnergy}}"
+        bind:fetch="fetchDormitoryEnergy"
       >
-        <text>在借：{{borrowNum}} 本</text>
+        <text>剩余电量：{{dormitoryEnergy}} 度</text>
+      </qcard>
+
+      <qcard
+        title="宿舍卫生"
+        image="../../assets/home.svg"
+        card-class="card-bg-dormitory-health"
+        status="{{status.dormitoryHealth}}"
+        bind:fetch="fetchDormitoryHealth"
+      >
+        <text wx:if="{{dormitoryHealthWeek}}">第 {{dormitoryHealthWeek}} 周成绩：{{dormitoryHealth}}</text>
+        <text wx:else>暂无卫生成绩</text>
       </qcard>
 
       <qcard
@@ -32,14 +43,13 @@
       </qcard>
 
       <qcard
-        title="宿舍"
-        image="../../assets/home.svg"
-        card-class="card-bg-dormitory"
-        status="{{status.dormitory}}"
-        bind:fetch="fetchDormitory"
+        title="图书借阅"
+        image="../../assets/read.svg"
+        card-class="card-bg-library"
+        status="{{status.library}}"
+        bind:fetch="fetchLibrary"
       >
-        <text wx:if="{{dormitoryScoreWeek}}">第 {{dormitoryScoreWeek}} 周卫生成绩：{{dormitoryScore}}</text>
-        <text wx:else>暂无卫生成绩</text>
+        <text>在借：{{borrowNum}} 本</text>
       </qcard>
     </wux-wing-blank>
   </view>
