@@ -1,5 +1,5 @@
 /*! *****************************************************************************
-Copyright (c) 2018 Tencent, Inc. All rights reserved. 
+Copyright (c) 2018 Tencent, Inc. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -4768,7 +4768,7 @@ declare namespace wx {
   wx.onNetworkStatusChange(function (res) {
     console.log(res.isConnected)
     console.log(res.networkType)
-  }) 
+  })
   ```
   *
   * 最低基础库： `1.1.0` */
@@ -5727,10 +5727,11 @@ declare namespace wx {
   *
   * 最低基础库： `2.0.1` */
     reportMonitor(
-      /** 上报数值，经处理后会在「小程序管理后台」上展示每分钟的上报总量 */
-      value: number,
+      /** f**k. fixed locally */
       /** 监控ID，在「小程序管理后台」新建数据指标后获得 */
       name: string,
+      /** 上报数值，经处理后会在「小程序管理后台」上展示每分钟的上报总量 */
+      value: number,
     ): void;
     /** [wx.getStorage(Object object)](wx.getStorage.md)
   *
@@ -5743,7 +5744,7 @@ declare namespace wx {
     key: 'key',
     success (res) {
       console.log(res.data)
-    } 
+    }
   })
   ```
   *
@@ -5769,7 +5770,7 @@ declare namespace wx {
     key: 'key',
     success (res) {
       console.log(res.data)
-    } 
+    }
   })
   ```
   *
@@ -5841,7 +5842,7 @@ declare namespace wx {
     key: 'key',
     success (res) {
       console.log(res.data)
-    } 
+    }
   })
   ```
   *
@@ -5864,7 +5865,7 @@ declare namespace wx {
     key: 'key',
     success (res) {
       console.log(res.data)
-    } 
+    }
   })
   ```
   *
@@ -6364,12 +6365,12 @@ declare namespace wx {
   *
   * ```js
   wx.createBLEConnection({
-    // 这里的 deviceId 需要已经通过 createBLEConnection 与对应设备建立链接 
+    // 这里的 deviceId 需要已经通过 createBLEConnection 与对应设备建立链接
     deviceId,
     success (res) {
       console.log(res)
     }
-  }) 
+  })
   ```
   *
   * 最低基础库： `1.1.0` */
@@ -6506,7 +6507,7 @@ declare namespace wx {
   * ```js
   wx.notifyBLECharacteristicValueChange({
     state: true, // 启用 notify 功能
-    // 这里的 deviceId 需要已经通过 createBLEConnection 与对应设备建立链接  
+    // 这里的 deviceId 需要已经通过 createBLEConnection 与对应设备建立链接
     deviceId,
     // 这里的 serviceId 需要在 getBLEDeviceServices 接口中获取
     serviceId,

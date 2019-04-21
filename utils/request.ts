@@ -1,5 +1,6 @@
 import api from '../configs/apis';
 import pages from '../configs/pages';
+import { EnumReport } from '../enums/index';
 
 const reqTimeout = 30000;
 let lastLogin: number | null = null;
@@ -40,6 +41,7 @@ function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiRespons
       success: (res) => {
         if (res.statusCode >= 500) {
           console.error('req fail with code', res.statusCode, res.data);
+          wx.reportMonitor(EnumReport.resp5xx, 1);
           autoError === 'toast' && wx.showToast({
             title: '服务器错误，请稍后再试',
             icon: 'none',
@@ -53,6 +55,7 @@ function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiRespons
           reject(res);
         } else {
           console.log('req success with code', res.statusCode, res.data);
+          res.statusCode === 403 && wx.reportMonitor(EnumReport.resp403, 1);
           const d = res.data as IApiResponse<IApiResponseDataType>;
           if (d.error) {
             autoError === 'toast' && wx.showToast({

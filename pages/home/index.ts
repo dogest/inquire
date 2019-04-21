@@ -1,4 +1,4 @@
-import { EnumApiStatus } from '../../enums/index';
+import { EnumApiStatus, EnumReport } from '../../enums/index';
 import { contractCardBalance } from '../../contracts/card';
 import { contractLibraryBorrow } from '../../contracts/library';
 import { contractScore } from '../../contracts/score';
@@ -91,20 +91,26 @@ Page({
     this.setData!({
       'status.card': EnumApiStatus.fetching,
     });
+    let success = false;
     try {
       const ret = await contractCardBalance(undefined, {
         autoError: 'none',
       });
       if (!ret.error) {
+        success = true;
         this.setData!({
           balance: ret.data.balance,
           'status.card': EnumApiStatus.success,
         });
       }
     } catch (e) {
-      this.setData!({
-        'status.card': EnumApiStatus.fail,
-      });
+    } finally {
+      if (!success) {
+        this.setData!({
+          'status.card': EnumApiStatus.fail,
+        });
+        wx.reportMonitor(EnumReport.cardBalanceFail, 1);
+      }
     }
   },
 
@@ -112,20 +118,26 @@ Page({
     this.setData!({
       'status.library': EnumApiStatus.fetching,
     });
+    let success = false;
     try {
       const ret = await contractLibraryBorrow(undefined, {
         autoError: 'none',
       });
       if (!ret.error) {
+        success = true;
         this.setData!({
           borrowNum: ret.data.info.length,
           'status.library': EnumApiStatus.success,
         });
       }
     } catch (e) {
-      this.setData!({
-        'status.library': EnumApiStatus.fail,
-      });
+    } finally {
+      if (!success) {
+        this.setData!({
+          'status.library': EnumApiStatus.fail,
+        });
+        wx.reportMonitor(EnumReport.libraryBorrowFail, 1);
+      }
     }
   },
 
@@ -133,20 +145,26 @@ Page({
     this.setData!({
       'status.score': EnumApiStatus.fetching,
     });
+    let success = false;
     try {
       const ret = await contractScore(undefined, {
         autoError: 'none',
       });
       if (!ret.error) {
+        success = true;
         this.setData!({
           score: ret.data.grade,
           'status.score': EnumApiStatus.success,
         });
       }
     } catch (e) {
-      this.setData!({
-        'status.score': EnumApiStatus.fail,
-      });
+    } finally {
+      if (!success) {
+        this.setData!({
+          'status.score': EnumApiStatus.fail,
+        });
+        wx.reportMonitor(EnumReport.scoreFail, 1);
+      }
     }
   },
 
@@ -154,11 +172,13 @@ Page({
     this.setData!({
       'status.dormitoryHealth': EnumApiStatus.fetching,
     });
+    let success = false;
     try {
       const ret = await contractDormitoryHealth(undefined, {
         autoError: 'none',
       });
       if (!ret.error) {
+        success = true;
         this.setData!({
           dormitoryHealth: ret.data[0] ? ret.data[0].score : null,
           dormitoryHealthWeek: ret.data[0] ? ret.data[0].week : null,
@@ -166,9 +186,13 @@ Page({
         });
       }
     } catch (e) {
-      this.setData!({
-        'status.dormitoryHealth': EnumApiStatus.fail,
-      });
+    } finally {
+      if (!success) {
+        this.setData!({
+          'status.dormitoryHealth': EnumApiStatus.fail,
+        });
+        wx.reportMonitor(EnumReport.dormitoryHealthFail, 1);
+      }
     }
   },
 
@@ -176,6 +200,7 @@ Page({
     this.setData!({
       'status.dormitoryEnergy': EnumApiStatus.fetching,
     });
+    let success = false;
     try {
       const userInfo = await storage.getUserInfo();
       if (userInfo) {
@@ -184,6 +209,7 @@ Page({
           autoError: 'none',
         });
         if (!ret.error) {
+          success = true;
           this.setData!({
             dormitoryEnergy: ret.data.energy,
             'status.dormitoryEnergy': EnumApiStatus.success,
@@ -191,9 +217,13 @@ Page({
         }
       }
     } catch (e) {
-      this.setData!({
-        'status.dormitoryEnergy': EnumApiStatus.fail,
-      });
+    } finally {
+      if (!success) {
+        this.setData!({
+          'status.dormitoryEnergy': EnumApiStatus.fail,
+        });
+        wx.reportMonitor(EnumReport.dormitoryEnergyFail, 1);
+      }
     }
   },
 
