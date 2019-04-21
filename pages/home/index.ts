@@ -1,8 +1,9 @@
-import { contractCardBalance } from '../../contracts/card';
 import { EnumApiStatus } from '../../enums/index';
+import { contractCardBalance } from '../../contracts/card';
 import { contractLibraryBorrow } from '../../contracts/library';
 import { contractScore } from '../../contracts/score';
 import { contractDormitoryEnergy, contractDormitoryHealth, contractDormitoryInfo } from '../../contracts/dormitory';
+import storage from '../../utils/storage';
 
 Page({
 
@@ -86,7 +87,6 @@ Page({
       const ret = await contractCardBalance(undefined, {
         autoError: 'none',
       });
-      console.log(ret);
       if (!ret.error) {
         this.setData!({
           balance: ret.data.balance,
@@ -108,7 +108,6 @@ Page({
       const ret = await contractLibraryBorrow(undefined, {
         autoError: 'none',
       });
-      console.log(ret);
       if (!ret.error) {
         this.setData!({
           borrowNum: ret.data.info.length,
@@ -130,7 +129,6 @@ Page({
       const ret = await contractScore(undefined, {
         autoError: 'none',
       });
-      console.log(ret);
       if (!ret.error) {
         this.setData!({
           score: ret.data.grade,
@@ -152,7 +150,6 @@ Page({
       const ret = await contractDormitoryHealth(undefined, {
         autoError: 'none',
       });
-      console.log(ret);
       if (!ret.error) {
         this.setData!({
           dormitoryHealth: ret.data[0] ? ret.data[0].score : null,
@@ -172,20 +169,15 @@ Page({
       'status.dormitoryEnergy': EnumApiStatus.fetching,
     });
     try {
-      const infoRet = await contractDormitoryInfo(undefined, {
-        autoError: 'none',
-      });
-      console.log(infoRet);
-      if (!infoRet.error) {
-        const floor = infoRet.data.rawFloor;
-        const room = (/\d+$/.exec(infoRet.data.room) || [])[0];
-        const energyRet = await contractDormitoryEnergy({ floor, room }, {
+      const userInfo = await storage.getUserInfo();
+      if (userInfo) {
+        const { floor, room } = userInfo;
+        const ret = await contractDormitoryEnergy({ floor, room }, {
           autoError: 'none',
         });
-        console.log(energyRet);
-        if (!energyRet.error) {
+        if (!ret.error) {
           this.setData!({
-            dormitoryEnergy: energyRet.data.energy,
+            dormitoryEnergy: ret.data.energy,
             'status.dormitoryEnergy': EnumApiStatus.success,
           });
         }

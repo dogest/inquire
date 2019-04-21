@@ -29,3 +29,8 @@ interface IContractInputWithToken {
 interface IContractInputWithTokenAndUserId extends IContractInputWithToken {
   userid?: string;
 }
+
+interface IStorageItem {
+  key: string;
+  data: IAnyObject | string;
+}

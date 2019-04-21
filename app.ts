@@ -1,6 +1,6 @@
 //app.ts
-import storageKey from './configs/storages';
 import pages from './configs/pages';
+import storage from './utils/storage';
 
 export interface IMyApp {
   userInfoReadyCallback?(res: wx.UserInfo): void;
@@ -11,8 +11,8 @@ App<IMyApp>({
   async onLaunch() {
     let hasValidToken = false;
     try {
-      const token = wx.getStorageSync(storageKey.token);
-      const tokenExpires = +wx.getStorageSync(storageKey.tokenExpires);
+      const token = await storage.getToken();
+      const tokenExpires = Number(await storage.getTokenExpires());
       console.log('get token', token, tokenExpires, Date.now());
       if (token && tokenExpires && tokenExpires > Date.now()) {
         hasValidToken = true;

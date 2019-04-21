@@ -1,7 +1,7 @@
-import storageKey from '../../configs/storages';
-import { contractUserToken } from '../../contracts/user';
+import { contractUserInfo, contractUserToken } from '../../contracts/user';
 import pages from '../../configs/pages';
 import generalConfigs from '../../configs/general';
+import storage from '../../utils/storage';
 
 Page({
 
@@ -17,10 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(_query: { [queryKey: string]: string }) {
-    const token = wx.getStorageSync(storageKey.token);
-    if (token) {
-      // ok
-    }
   },
 
   /**
@@ -85,22 +81,16 @@ Page({
     console.log(ret);
     if (!ret.error) {
       const token = ret.data.token;
-      wx.setStorage({
-        key: storageKey.token,
-        data: token,
-      });
-      wx.setStorage({
-        key: storageKey.tokenExpires,
-        data: `${Date.now() + generalConfigs.tokenLifetime}`,
-      });
-      wx.setStorage({
-        key: storageKey.userId,
-        data: this.data.username,
-      });
-      wx.setStorage({
-        key: storageKey.password,
-        data: this.data.password,
-      });
+      await storage.setToken(token);
+      await storage.setTokenExpires(`${Date.now() + generalConfigs.tokenLifetime}`);
+      await storage.setUserId(this.data.username);
+      await storage.setPassword(this.data.password);
+      // 请求用户信息
+      const infoRet = await contractUserInfo();
+      if (!infoRet.error) {
+        const { name, department, floor, room } = infoRet.data;
+        await storage.setUserInfo({ name, department, floor, room });
+      }
       wx.showToast({
         title: '绑定成功',
       });

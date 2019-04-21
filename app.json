@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "因快儿",
+    "navigationBarTitleText": "抽空查询",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {

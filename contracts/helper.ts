@@ -1,6 +1,6 @@
 import request, { IRequestOptions } from '../utils/request';
-import storageKey from '../configs/storages';
 import * as camelize from '../libs/camelize/index';
+import storage from '../utils/storage';
 
 function postprocess(ret: IApiResponse<IApiResponseDataType>): IApiResponse<IApiResponseDataType> {
   return camelize(ret);
@@ -17,22 +17,22 @@ export function genNormalContract<I, O extends IApiResponseDataType>(url: string
 }
 
 export function genTokenContract<I, O extends IApiResponseDataType>(url: string) {
-  return function(data?: I, options?: IRequestOptions): Promise<IApiResponse<O>> {
+  return async function(data?: I, options?: IRequestOptions): Promise<IApiResponse<O>> {
     let token;
     try {
-      token = wx.getStorageSync(storageKey.token);
+      token = await storage.getToken();
     } catch (e) {}
     return generalReq(url, { token, ...data }, options) as Promise<IApiResponse<O>>;
   };
 }
 
 export function genTokenAndUserIdContract<I, O extends IApiResponseDataType>(url: string) {
-  return function(data?: I, options?: IRequestOptions): Promise<IApiResponse<O>> {
+  return async function(data?: I, options?: IRequestOptions): Promise<IApiResponse<O>> {
     let token;
     let userId;
     try {
-      token = wx.getStorageSync(storageKey.token);
-      userId = wx.getStorageSync(storageKey.userId);
+      token = await storage.getToken();
+      userId = await storage.getUserId();
     } catch (e) {}
     return generalReq(url, { token, userid: userId, ...data }, options) as Promise<IApiResponse<O>>;
   };

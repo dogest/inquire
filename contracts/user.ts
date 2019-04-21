@@ -34,6 +34,8 @@ export interface ICOutputUserInfo {
   name: string;	// 用户的姓名
   userid: string; // 用户的学号
   department: string; // 用户的部门/学院
+  floor: string; // 用户的宿舍楼
+  room: string; // 用户的房间号
 }
 
 export const contractUserInfo = genTokenContract<undefined, ICOutputUserInfo>(api.userInfo);

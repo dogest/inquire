@@ -5,7 +5,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.5",
-	"projectname": "%E5%9B%A0%E5%BF%AB%E5%84%BF",
+	"projectname": "%E6%8A%BD%E7%A9%BA%E6%9F%A5%E8%AF%A2",
 	"scripts": {
 		"beforeCompile": "npm run compile",
 		"beforePreview": "npm run compile",
@@ -17,7 +17,7 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"nodeModules": true,
+		"nodeModules": false,
 		"autoAudits": false,
 		"uglifyFileName": false
 	},

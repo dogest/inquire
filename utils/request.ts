@@ -12,13 +12,15 @@ export interface IWXRequestOptions {
 export type IRequestOptions = Pick<IWXRequestOptions, 'header' | 'loadingText' | 'autoError'>;
 
 /**
- * base wxRequest
+ * Base request
  * @param {IWXRequestOptions} options
  * @returns {Promise<IAnyObject>}
  */
 function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiResponseDataType>> {
-  const header = options.header || {
+  const header = {
+    ...(options.header || {}),
     'Content-Type': 'application/json',
+    'X-Referer': 'Inquire',
   };
   const data = options.data || {};
   options.loadingText && wx.showLoading({
@@ -33,6 +35,7 @@ function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiRespons
       header,
       success: (res) => {
         if (res.statusCode >= 500) {
+          console.error('req fail with code', res.statusCode, res.data);
           autoError === 'toast' && wx.showToast({
             title: '服务器错误，请稍后再试',
             icon: 'none',
@@ -45,6 +48,7 @@ function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiRespons
           });
           reject(res);
         } else {
+          console.log('req success with code', res.statusCode, res.data);
           const d = res.data as IApiResponse<IApiResponseDataType>;
           if (d.error) {
             autoError === 'toast' && wx.showToast({
@@ -62,6 +66,7 @@ function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiRespons
         }
       },
       fail: (err) => {
+        console.error('req fail', err);
         autoError === 'toast' && wx.showToast({
           title: '未知错误，请稍后再试',
           icon: 'none',
