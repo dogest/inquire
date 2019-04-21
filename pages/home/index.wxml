@@ -59,8 +59,8 @@
     </wux-wing-blank>
 
     <view class="mt-64" style="display: flex; justify-content: center;">
-      <wux-button outline size="small" type="assertive">注销</wux-button>
-      <wux-button outline size="small" type="positive" class="ml-16">关于</wux-button>
+      <wux-button outline type="assertive" bind:click="logout">注销</wux-button>
+      <wux-button outline type="positive" class="ml-16">关于</wux-button>
     </view>
   </view>
 </view>

@@ -3,7 +3,7 @@ import pages from '../../configs/pages';
 import generalConfigs from '../../configs/general';
 import storage from '../../utils/storage';
 
-const loadingTexts = ['请稍候', '正在绑定', '等待服务器', '一等', '努力请求中'];
+const loadingTexts = ['请稍候', '正在绑定', '等待服务器', '一等', '努力请求中', '拼命请求中', '抽空请求中'];
 
 Page({
 
@@ -14,6 +14,8 @@ Page({
     username: '',
     password: '',
     loading: false,
+    licenseUrl: pages.license,
+    helpUrl: pages.help,
   },
 
   /**

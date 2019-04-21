@@ -2,7 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/login/index",
-    "pages/home/index"
+    "pages/home/index",
+    "pages/license/index",
+    "pages/help/index",
+    "pages/about/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -18,7 +21,8 @@
     "wux-cell": "./libs/wux-weapp/cell/index",
     "wux-wing-blank": "./libs/wux-weapp/wing-blank/index",
     "wux-card": "./libs/wux-weapp/card/index",
-    "wux-spin": "./libs/wux-weapp/spin/index"
+    "wux-spin": "./libs/wux-weapp/spin/index",
+    "wemark": "../libs/wemark/wemark"
   },
   "networkTimeout": {
     "request": 30000

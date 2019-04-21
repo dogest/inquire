@@ -17,7 +17,7 @@
       <wux-cell hover-class="none">
         <wux-input
           label="密码"
-          placeholder="统一登录平台密码"
+          placeholder="网上服务大厅密码"
           password
           value="{{password}}"
           controlled
@@ -25,6 +25,11 @@
         />
       </wux-cell>
     </wux-cell-group>
+
+    <wux-wing-blank size="large">
+      <view class="color-gray mt-20">绑定学号即意味着您同意 <navigator url="{{licenseUrl}}" class="wux-positive" style="display: inline-flex;">服务条款</navigator></view>
+      <view class="color-gray mt-12">绑定遇到困难？请参阅 <navigator url="{{helpUrl}}" class="wux-positive" style="display: inline-flex;">常见问题</navigator></view>
+    </wux-wing-blank>
 
     <view class="page__bd_spacing mt-64">
       <wux-button block type="positive" loading="{{loading}}" disabled="{{loading}}" bind:click="onSubmit">绑定</wux-button>

@@ -207,4 +207,13 @@ Page({
       this.fetchDormitoryEnergy(),
     ]);
   },
+
+  logout() {
+    try {
+      wx.clearStorageSync();
+    } catch (e) {
+      console.error(e);
+    }
+    wx.redirectTo({ url: pages.login });
+  },
 });

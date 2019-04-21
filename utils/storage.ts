@@ -56,7 +56,7 @@ function genStorageGet<SI extends IStorageItemBase>(key: SI['key']) {
     try {
       return await wxGetStorage(key) as SI['data'] || null;
     } catch (e) {
-      console.error('get storage error', e);
+      console.warn('get storage error', key, e);
     }
     return null;
   };
@@ -73,7 +73,7 @@ function genStorageSet<SI extends IStorageItemBase>(key: SI['key']) {
     try {
       await wxSetStorage(key, data);
     } catch (e) {
-      console.error('set storage error', e);
+      console.warn('set storage error', key, data, e);
     }
   };
 }

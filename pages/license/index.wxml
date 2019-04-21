@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="h-header">服务条款</view>
+  </view>
+  <view class="page__bd">
+    <wux-wing-blank size="large">
+      <wemark md="{{license}}"></wemark>
+    </wux-wing-blank>
+  </view>
+</view>
