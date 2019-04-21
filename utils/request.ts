@@ -1,4 +1,8 @@
 import api from '../configs/apis';
+import pages from '../configs/pages';
+
+const reqTimeout = 30000;
+let lastLogin: number | null = null;
 
 export interface IWXRequestOptions {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE';
@@ -61,6 +65,23 @@ function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiRespons
               content: d.message,
               showCancel: false,
             });
+          }
+          if (res.statusCode === 401 &&
+            !options.url.startsWith(api.userToken) &&
+            (!lastLogin || (lastLogin && Date.now() - lastLogin > reqTimeout * 2))) {
+            console.log('get last login', lastLogin);
+            lastLogin = Date.now();
+            console.log('set last login', lastLogin);
+            try {
+              const currentPage = getCurrentPages();
+              const currentRoute = currentPage[currentPage.length - 1].route || '';
+              if (!~pages.login.indexOf(currentRoute)) {
+                console.log('redirect to re-login', currentRoute);
+                wx.redirectTo({ url: pages.login });
+              }
+            } catch (e) {
+              console.error(e);
+            }
           }
           resolve(d);
         }

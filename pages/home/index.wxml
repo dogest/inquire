@@ -6,6 +6,7 @@
         image="../../assets/creditcard.svg"
         card-class="card-bg-card"
         status="{{status.card}}"
+        footer="数据来源：校园一卡通自助查询平台"
         bind:fetch="fetchCard"
       >
         <text>余额：{{balance}} 元</text>
@@ -16,6 +17,7 @@
         image="../../assets/thunderbolt.svg"
         card-class="card-bg-dormitory-energy"
         status="{{status.dormitoryEnergy}}"
+        footer="数据来源：后勤服务大厅"
         bind:fetch="fetchDormitoryEnergy"
       >
         <text>剩余电量：{{dormitoryEnergy}} 度</text>
@@ -26,6 +28,7 @@
         image="../../assets/home.svg"
         card-class="card-bg-dormitory-health"
         status="{{status.dormitoryHealth}}"
+        footer="数据来源：网上服务大厅"
         bind:fetch="fetchDormitoryHealth"
       >
         <text wx:if="{{dormitoryHealthWeek}}">第 {{dormitoryHealthWeek}} 周成绩：{{dormitoryHealth}}</text>
@@ -37,6 +40,7 @@
         image="../../assets/rise.svg"
         card-class="card-bg-score"
         status="{{status.score}}"
+        footer="数据来源：教学综合信息服务平台"
         bind:fetch="fetchScore"
       >
         <text>绩点：{{score}}</text>
@@ -47,10 +51,16 @@
         image="../../assets/read.svg"
         card-class="card-bg-library"
         status="{{status.library}}"
+        footer="数据来源：图书馆"
         bind:fetch="fetchLibrary"
       >
         <text>在借：{{borrowNum}} 本</text>
       </qcard>
     </wux-wing-blank>
+
+    <view class="mt-64" style="display: flex; justify-content: center;">
+      <wux-button outline size="small" type="assertive">注销</wux-button>
+      <wux-button outline size="small" type="positive" class="ml-16">关于</wux-button>
+    </view>
   </view>
 </view>

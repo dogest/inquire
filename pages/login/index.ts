@@ -3,6 +3,8 @@ import pages from '../../configs/pages';
 import generalConfigs from '../../configs/general';
 import storage from '../../utils/storage';
 
+const loadingTexts = ['请稍候', '正在绑定', '等待服务器', '一等', '努力请求中'];
+
 Page({
 
   /**
@@ -11,12 +13,27 @@ Page({
   data: {
     username: '',
     password: '',
+    loading: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(_query: { [queryKey: string]: string }) {
+  async onLoad(_query: { [queryKey: string]: string }) {
+    try {
+      const userId = await storage.getUserId() || '';
+      const password = await storage.getPassword() || '';
+      this.setData!({
+        username: userId,
+        password,
+      });
+      if (userId && password) {
+        console.log('auto login');
+        this.onSubmit();
+      }
+    } catch (e) {
+      console.error(e);
+    }
   },
 
   /**
@@ -74,23 +91,41 @@ Page({
   },
 
   async onSubmit() {
-    const ret = await contractUserToken({
-      username: this.data.username,
-      password: this.data.password,
+    this.setData!({
+      loading: true,
     });
-    console.log(ret);
-    if (!ret.error) {
-      const token = ret.data.token;
-      await storage.setToken(token);
-      await storage.setTokenExpires(`${Date.now() + generalConfigs.tokenLifetime}`);
-      await storage.setUserId(this.data.username);
-      await storage.setPassword(this.data.password);
-      // 请求用户信息
-      const infoRet = await contractUserInfo();
-      if (!infoRet.error) {
-        const { name, department, floor, room } = infoRet.data;
-        await storage.setUserInfo({ name, department, floor, room });
+    const loadingText = loadingTexts[Math.floor(Math.random() * loadingTexts.length)];
+    wx.showLoading({
+      title: loadingText,
+    });
+    let success = false;
+    try {
+      const ret = await contractUserToken({
+        username: this.data.username,
+        password: this.data.password,
+      });
+      if (!ret.error) {
+        const token = ret.data.token;
+        await storage.setToken(token);
+        await storage.setTokenExpires(`${Date.now() + generalConfigs.tokenLifetime}`);
+        await storage.setUserId(this.data.username);
+        await storage.setPassword(this.data.password);
+        // 请求用户信息
+        const infoRet = await contractUserInfo();
+        if (!infoRet.error) {
+          const { name, department, floor, room } = infoRet.data;
+          await storage.setUserInfo({ name, department, floor, room });
+          success = true;
+        }
       }
+    } finally {
+      this.setData!({
+        loading: false,
+      });
+      wx.hideLoading({});
+    }
+
+    if (success) {
       wx.showToast({
         title: '绑定成功',
       });

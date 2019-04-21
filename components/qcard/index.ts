@@ -22,6 +22,10 @@ Component({
       type: String,
       value: '',
     },
+    footer: {
+      type: String,
+      value: '',
+    },
   },
 
   /**

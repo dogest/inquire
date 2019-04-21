@@ -4,6 +4,7 @@ import { contractLibraryBorrow } from '../../contracts/library';
 import { contractScore } from '../../contracts/score';
 import { contractDormitoryEnergy, contractDormitoryHealth, contractDormitoryInfo } from '../../contracts/dormitory';
 import storage from '../../utils/storage';
+import pages from '../../configs/pages';
 
 Page({
 
@@ -77,6 +78,13 @@ Page({
    */
   onReachBottom() {
 
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '抽空查询',
+      path: pages.home,
+    };
   },
 
   async fetchCard() {

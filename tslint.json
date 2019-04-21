@@ -21,6 +21,8 @@
     "no-empty": false,
     "no-empty-interface": false,
     "object-literal-key-quotes": false,
-    "no-console": false
+    "no-console": false,
+    "no-bitwise": false,
+    "member-ordering": false
   }
 }

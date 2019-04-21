@@ -1,4 +1,3 @@
-//app.ts
 import pages from './configs/pages';
 import storage from './utils/storage';
 
@@ -18,11 +17,10 @@ App<IMyApp>({
         hasValidToken = true;
       }
     } catch (e) {}
-    console.log('redirect', hasValidToken ? pages.home : pages.login);
+    console.log('app redirect', hasValidToken ? pages.home : pages.login);
     wx.redirectTo({
       url: hasValidToken ? pages.home : pages.login,
     });
   },
-  globalData: {
-  },
+  globalData: {},
 });

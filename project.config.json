@@ -39,10 +39,10 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "login",
 					"pathName": "pages/login/index",
 					"query": "",
@@ -52,6 +52,7 @@
 					"id": -1,
 					"name": "home",
 					"pathName": "pages/home/index",
+					"query": "",
 					"scene": null
 				}
 			]

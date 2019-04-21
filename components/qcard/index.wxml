@@ -4,11 +4,11 @@
       <view slot="body" class="qcard-body">
         <slot wx:if="{{status === enumStatus.success}}"></slot>
         <view wx:elif="{{status === enumStatus.fail}}" style="position: absolute; width: 100%; left: 0;">
-          <wux-button outline type="stable" style="display: flex; justify-content: center;" bind:click="fetch">重试</wux-button>
+          <wux-button outline type="stable" hover-stop-propagation style="display: flex; justify-content: center;" bind:click="fetch">重试</wux-button>
         </view>
         <image src="{{image}}" class="qcard-image"></image>
       </view>
-      <view slot="footer" class="qcard-footer">{{status === enumStatus.success ? '查看更多' : '　'}}</view>
+      <view slot="footer" class="qcard-footer">{{status === enumStatus.success ? footer : '　'}}</view>
     </wux-card>
   </view>
 </wux-spin>

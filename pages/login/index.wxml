@@ -27,7 +27,7 @@
     </wux-cell-group>
 
     <view class="page__bd_spacing mt-64">
-      <wux-button block type="positive" bind:click="onSubmit">绑定</wux-button>
+      <wux-button block type="positive" loading="{{loading}}" disabled="{{loading}}" bind:click="onSubmit">绑定</wux-button>
     </view>
   </view>
 </view>
