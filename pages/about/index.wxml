@@ -1,1 +1,21 @@
-<view></view>
+<wux-wing-blank size="default">
+  <view class="container">
+    <view class="main">
+      <image class="icon" src="../../assets/inquire_icon.png"></image>
+      <text style="font-size: 45rpx; font-weight: 500;">抽空查询</text>
+
+      <wux-divider text="开发者" style="margin-top: 105rpx;" />
+      <text class="mt-20 color-gray">小程序</text>
+      <text class="text-sm" data-clipboard="https://github.com/dreamerblue" bindtap="onTapLink">bLue（github.com/dreamerblue）</text>
+      <text class="mt-20 color-gray">爬虫和服务端</text>
+      <text class="text-sm" data-clipboard="https://github.com/MeiK-h" bindtap="onTapLink">MeiK（github.com/MeiK-h）</text>
+
+      <wux-divider text="鸣谢" style="margin-top: 45rpx;" />
+      <text class="text-sm">山东理工大学网上服务大厅</text>
+      <text class="text-sm">山东理工大学校园一卡通自助查询平台</text>
+      <text class="text-sm">山东理工大学后勤服务大厅</text>
+      <text class="text-sm">山东理工大学教学综合信息服务平台</text>
+      <text class="text-sm">山东理工大学图书馆</text>
+    </view>
+  </view>
+</wux-wing-blank>

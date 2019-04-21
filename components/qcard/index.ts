@@ -14,7 +14,7 @@ Component({
       type: String,
       value: '',
     },
-    image: {
+    image: { // 相对本组件的图片路径
       type: String,
       value: '',
     },

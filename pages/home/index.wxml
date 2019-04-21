@@ -58,9 +58,9 @@
       </qcard>
     </wux-wing-blank>
 
-    <view class="mt-64" style="display: flex; justify-content: center;">
+    <view style="display: flex; justify-content: center; margin-top: 90rpx; margin-bottom: 30rpx;">
       <wux-button outline type="assertive" bind:click="logout">注销</wux-button>
-      <wux-button outline type="positive" class="ml-16">关于</wux-button>
+      <wux-button outline type="positive" class="ml-16" bind:click="toAbout">关于</wux-button>
     </view>
   </view>
 </view>

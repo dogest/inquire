@@ -216,4 +216,8 @@ Page({
     }
     wx.redirectTo({ url: pages.login });
   },
+
+  toAbout() {
+    wx.navigateTo({ url: pages.about });
+  },
 });

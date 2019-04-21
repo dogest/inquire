@@ -22,6 +22,7 @@
     "wux-wing-blank": "./libs/wux-weapp/wing-blank/index",
     "wux-card": "./libs/wux-weapp/card/index",
     "wux-spin": "./libs/wux-weapp/spin/index",
+    "wux-divider": "./libs/wux-weapp/divider/index",
     "wemark": "../libs/wemark/wemark"
   },
   "networkTimeout": {
