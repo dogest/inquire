@@ -22,6 +22,8 @@
 		"uglifyFileName": false
 	},
 	"appid": "wx276322baceadab69",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

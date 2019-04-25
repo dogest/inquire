@@ -1,5 +1,5 @@
 import api from '../configs/apis';
-import { genNormalContract, genTokenContract } from './helper';
+import { genTokenContract } from './helper';
 
 /**
  * DormitoryInfo

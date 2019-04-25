@@ -12,6 +12,7 @@ const api = {
   dormitoryInfo: '/dormitory/info',
   dormitoryHealth: '/dormitory/health',
   dormitoryEnergy: '/dormitory/energy',
+  schedule: '/schedule',
 };
 
 export default api;
