@@ -46,4 +46,4 @@ export interface ICOutputDormitoryEnergy {
   status: string; // 当前使用状态（如：正常用电）
 }
 
-export const contractDormitoryEnergy = genNormalContract<ICInputDormitoryEnergy, ICOutputDormitoryEnergy>(api.dormitoryEnergy);
+export const contractDormitoryEnergy = genTokenContract<ICInputDormitoryEnergy, ICOutputDormitoryEnergy>(api.dormitoryEnergy);

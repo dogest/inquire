@@ -6,7 +6,7 @@ import { genNormalContract, genTokenContract } from './helper';
  */
 
 export interface ICInputUserToken {
-  username: string; // 用户名（学号）
+  userid: string; // 用户名（学号）
   password: string; // 密码
 }
 

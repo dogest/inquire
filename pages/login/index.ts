@@ -11,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: '',
+    userId: '',
     password: '',
     loading: false,
     licenseUrl: pages.license,
@@ -26,7 +26,7 @@ Page({
       const userId = await storage.getUserId() || '';
       const password = await storage.getPassword() || '';
       this.setData!({
-        username: userId,
+        userId,
         password,
       });
       if (userId && password) {
@@ -80,9 +80,9 @@ Page({
 
   },
 
-  onUsernameChange(e) {
+  onUserIdChange(e) {
     this.setData!({
-      username: e.detail.value,
+      userId: e.detail.value,
     });
   },
 
@@ -103,14 +103,14 @@ Page({
     let success = false;
     try {
       const ret = await contractUserToken({
-        username: this.data.username,
+        userid: this.data.userId,
         password: this.data.password,
       });
       if (!ret.error) {
         const token = ret.data.token;
         await storage.setToken(token);
         await storage.setTokenExpires(`${Date.now() + generalConfigs.tokenLifetime}`);
-        await storage.setUserId(this.data.username);
+        await storage.setUserId(this.data.userId);
         await storage.setPassword(this.data.password);
         // 请求用户信息
         const infoRet = await contractUserInfo();

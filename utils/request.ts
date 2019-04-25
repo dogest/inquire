@@ -1,6 +1,7 @@
 import api from '../configs/apis';
 import pages from '../configs/pages';
 import { EnumReport } from '../enums/index';
+import storage from './storage';
 
 const reqTimeout = 30000;
 let lastLogin: number | null = null;
@@ -21,7 +22,7 @@ export type IRequestOptions = Pick<IWXRequestOptions, 'header' | 'loadingText' |
  * @param {IWXRequestOptions} options
  * @returns {Promise<IAnyObject>}
  */
-function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiResponseDataType>> {
+async function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiResponseDataType>> {
   const header = {
     ...(options.header || {}),
     'Content-Type': 'application/json',
@@ -32,9 +33,15 @@ function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiRespons
     title: options.loadingText,
   });
   const autoError = options.autoError || 'dialog';
+  let userId = '';
+  try {
+    userId = data.userid || await storage.getUserId() || '';
+  } catch (e) {
+    console.error(e);
+  }
   return new Promise((resolve, reject) => {
     wx.request({
-      url: api.base + options.url,
+      url: api.base + options.url + '?userid=' + encodeURIComponent(userId),
       method: options.method,
       data,
       header,

@@ -9,9 +9,9 @@
           label="学号"
           placeholder="数字学号"
           type="number"
-          value="{{username}}"
+          value="{{userId}}"
           controlled
-          bind:change="onUsernameChange"
+          bind:change="onUserIdChange"
         />
       </wux-cell>
       <wux-cell hover-class="none">
