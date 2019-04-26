@@ -6,3 +6,5 @@ package-lock.json
 yarn.lock
 npm-debug.log
 /miniprogram_npm
+/miniprogram/**/*.js
+!/miniprogram/libs/**/*.js
