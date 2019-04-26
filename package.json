@@ -8,6 +8,6 @@
   "dependencies": {},
   "devDependencies": {
     "tslint": "^5.15.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.3.3333"
   }
 }

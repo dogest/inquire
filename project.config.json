@@ -3,6 +3,7 @@
 	"packOptions": {
 		"ignore": []
 	},
+	"miniprogramRoot": "miniprogram/",
 	"compileType": "miniprogram",
 	"libVersion": "2.6.5",
 	"projectname": "%E6%8A%BD%E7%A9%BA%E6%9F%A5%E8%AF%A2",
