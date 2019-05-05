@@ -8,7 +8,7 @@
         </view>
         <image src="{{image}}" class="qcard-image"></image>
       </view>
-      <view slot="footer" class="qcard-footer">{{status === enumStatus.success ? footer : '　'}}</view>
+      <view slot="footer" class="qcard-footer">{{status === enumStatus.success ? footer || '　' : '　'}}</view>
     </wux-card>
   </view>
 </wux-spin>

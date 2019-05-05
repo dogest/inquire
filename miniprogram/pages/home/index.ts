@@ -5,6 +5,9 @@ import { contractScore } from '../../contracts/score';
 import { contractDormitoryEnergy, contractDormitoryHealth, contractDormitoryInfo } from '../../contracts/dormitory';
 import storage from '../../utils/storage';
 import pages from '../../configs/pages';
+import { contractSchedule } from '../../contracts/schedule';
+import { findNextPendingClass } from '../../utils/schedule';
+import { getCurrentMoment } from '../../utils/util';
 
 Page({
 
@@ -18,6 +21,7 @@ Page({
       score: EnumApiStatus.fetching,
       dormitoryHealth: EnumApiStatus.fetching,
       dormitoryEnergy: EnumApiStatus.fetching,
+      schedule: EnumApiStatus.fetching,
     },
     balance: undefined,
     borrowNum: undefined,
@@ -25,6 +29,7 @@ Page({
     dormitoryHealth: undefined,
     dormitoryHealthWeek: undefined,
     dormitoryEnergy: undefined,
+    schedule: undefined,
   },
 
   /**
@@ -227,6 +232,49 @@ Page({
     }
   },
 
+  async fetchSchedule() {
+    this.setData!({
+      'status.schedule': EnumApiStatus.fetching,
+    });
+    let success = false;
+    try {
+      const ret = await contractSchedule(undefined, {
+        autoError: 'none',
+      });
+      console.warn(ret);
+      if (!ret.error) {
+        success = true;
+        const nextClass = findNextPendingClass(ret.data.currentWeek, ret.data.schedule);
+        let nc: any = null;
+        if (nextClass) {
+          nc = {
+            durationOfClass: nextClass._durationOfClass,
+            durationOfWeek: nextClass._durationOfWeek,
+            classroom: nextClass.classroom,
+            className: nextClass.className,
+            dayOfWeek: nextClass._dayOfWeek,
+            teacherName: nextClass.teacherName,
+            beginAfter: nextClass.beginMoment.from(getCurrentMoment(), true),
+            beginAt: nextClass.beginMoment.format('ddd HH:mm'),
+          };
+        }
+        console.log('nc', nc);
+        this.setData!({
+          schedule: nc,
+          'status.schedule': EnumApiStatus.success,
+        });
+      }
+    } catch (e) {
+    } finally {
+      if (!success) {
+        this.setData!({
+          'status.schedule': EnumApiStatus.fail,
+        });
+        wx.reportMonitor(EnumReport.scheduleFail, 1);
+      }
+    }
+  },
+
   fetchAll() {
     console.log('fetchAll');
     return Promise.all([
@@ -235,6 +283,7 @@ Page({
       this.fetchScore(),
       this.fetchDormitoryHealth(),
       this.fetchDormitoryEnergy(),
+      this.fetchSchedule(),
     ]);
   },
 

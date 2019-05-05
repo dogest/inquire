@@ -1,5 +1,6 @@
 import pages from './configs/pages';
 import storage from './utils/storage';
+import * as moment from './libs/moment/index';
 
 export interface IMyApp {
   userInfoReadyCallback?(res: wx.UserInfo): void;
@@ -21,6 +22,7 @@ App<IMyApp>({
     wx.redirectTo({
       url: hasValidToken ? pages.home : pages.login,
     });
+    moment.locale('zh-cn');
   },
   globalData: {},
 });

@@ -1,5 +1,5 @@
 .card-bg-card {
-  background-image: linear-gradient(180deg, #FFFFFF 0%, #FEDFFF 100%);
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FEE2FF 100%);
 }
 
 .card-bg-library {
@@ -16,4 +16,8 @@
 
 .card-bg-dormitory-energy {
   background-image: linear-gradient(180deg, #FFFFFF 0%, #FFEFDA 100%);
+}
+
+.card-bg-schedule {
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FDE0E0 100%);
 }

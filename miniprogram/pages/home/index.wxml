@@ -13,6 +13,18 @@
       </qcard>
 
       <qcard
+        title="课程表"
+        image="../../assets/table.svg"
+        card-class="card-bg-schedule"
+        status="{{status.schedule}}"
+        footer="{{schedule ? '[' + schedule.beginAfter + '后 | ' + schedule.beginAt + '] ' + schedule.classroom + '·' + schedule.teacherName : ''}}"
+        bind:fetch="fetchSchedule"
+      >
+        <text wx:if="{{schedule}}">下节：{{schedule.className}}</text>
+        <text wx:else>暂无课程</text>
+      </qcard>
+
+      <qcard
         title="宿舍电量"
         image="../../assets/thunderbolt.svg"
         card-class="card-bg-dormitory-energy"

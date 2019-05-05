@@ -1,3 +1,5 @@
+import * as moment from '../libs/moment/index';
+
 export function formatTime(date: Date): string {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -13,3 +15,7 @@ const formatNumber = (n: number) => {
   const str = n.toString();
   return str[1] ? str : '0' + str;
 };
+
+export function getCurrentMoment() {
+  return moment().utcOffset(8);
+}

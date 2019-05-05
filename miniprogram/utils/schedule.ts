@@ -1,0 +1,50 @@
+import * as moment from '../libs/moment/index';
+import { getCurrentMoment } from './util';
+import scheduleConfig from '../configs/schedule';
+import { ICOutputSchedule } from '../contracts/schedule';
+
+function debugFormatMoment(m: moment.Moment) {
+  return m.format('YYYY-MM-DD HH:mm:ss.SSS ddd (E) Z');
+}
+
+/**
+ * 获取指定课程时间的 moment 对象
+ * @param {number} weekday 星期几（1-7）
+ * @param {string} classTime（HH:mm）
+ * @returns {moment.Moment}
+ */
+export function getClassMoment(weekday: number, classTime: string) {
+  const classMoment = getCurrentMoment();
+  classMoment.isoWeekday(weekday);
+  const [h, m] = classTime.split(':');
+  classMoment.hour(+h);
+  classMoment.minute(+m);
+  classMoment.second(0);
+  classMoment.millisecond(0);
+  return classMoment;
+}
+
+export function findNextPendingClass(currentWeek: ICOutputSchedule['currentWeek'], schedule: ICOutputSchedule['schedule']) {
+  const scheduleWithBeginMoment = schedule.map(s => ({
+    ...s,
+    currentWeek,
+    beginMoment: getClassMoment(s._dayOfWeek, scheduleConfig.classTime[s._durationOfClass[0] - 1][0]),
+  }));
+  const scheduleWithBeginMomentNextWeek = scheduleWithBeginMoment.map(s => ({
+    ...s,
+    currentWeek: currentWeek + 1,
+    beginMoment: moment(s.beginMoment).add(7, 'd'),
+  }));
+  const scheduleD2 = [...scheduleWithBeginMoment, ...scheduleWithBeginMomentNextWeek];
+  for (const s of scheduleD2) {
+    // 判断教学周
+    if (!(s.currentWeek >= s._durationOfWeek[0] && s.currentWeek <= s._durationOfWeek[1])) {
+      continue;
+    }
+    if (getCurrentMoment().isBefore(s.beginMoment)) {
+      console.log('findNextPendingClass', debugFormatMoment(s.beginMoment));
+      return s;
+    }
+  }
+  return null;
+}

@@ -23,6 +23,7 @@
     "object-literal-key-quotes": false,
     "no-console": false,
     "no-bitwise": false,
-    "member-ordering": false
+    "member-ordering": false,
+    "arrow-parens": false
   }
 }

@@ -23,11 +23,11 @@ interface IApiResponseFail {
 type IApiResponse<T extends IApiResponseDataType = undefined> = IApiResponseSuccess<T> | IApiResponseFail;
 
 interface IContractInputWithToken {
-  token?: string;
+  token: string;
 }
 
 interface IContractInputWithTokenAndUserId extends IContractInputWithToken {
-  userid?: string;
+  userid: string;
 }
 
 interface IStorageItem {
