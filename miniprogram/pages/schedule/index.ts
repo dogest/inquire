@@ -150,4 +150,17 @@ Page({
     });
     this.calSchedule();
   },
+
+  onClickClass(e) {
+    const { row, col } = e.currentTarget.dataset;
+    const { formattedSchedule } = this.data;
+    if (formattedSchedule[row] && formattedSchedule[row][col]) {
+      const info = formattedSchedule[row][col]!;
+      wx.showModal({
+        title: info!.className,
+        content: `教室：${info.classroom}\n教师：${info.teacherName}\n开课时间：${info.durationOfWeek} 周，${info.durationOfClass} 节`,
+        showCancel: false,
+      });
+    }
+  },
 });

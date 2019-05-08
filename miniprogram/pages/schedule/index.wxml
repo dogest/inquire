@@ -1,17 +1,17 @@
 <view class="page">
-  <view class="page__bd">
+  <view class="page__bd" style="overflow-x: hidden;">
     <wux-row>
       <wux-col span="2">
         <wux-button type="light" block size="small" disabled="{{currentWeek <= 1}}" wux-class="arrow-button" bind:click="toPrevious">
-          <wux-icon type="ios-arrow-back" size="28" />
+          <wux-icon type="ios-arrow-round-back" size="28" />
         </wux-button>
       </wux-col>
       <wux-col span="8">
-        <view class="wux-text--center week-title">第 {{currentWeek}} 周</view>
+        <view class="wux-text--center week-title">第 {{currentWeek}} 周{{d && d.currentWeek === currentWeek ? '（当前周）' : ''}}</view>
       </wux-col>
       <wux-col span="2">
         <wux-button type="light" block size="small" disabled="{{currentWeek >= maxWeek}}" wux-class="arrow-button" bind:click="toNext">
-          <wux-icon type="ios-arrow-forward" size="28" />
+          <wux-icon type="ios-arrow-round-forward" size="28" />
         </wux-button>
       </wux-col>
     </wux-row>
@@ -29,12 +29,16 @@
             <view class="table-th">日</view>
           </block>
         </view>
-        <view wx:for="{{formattedSchedule}}" wx:for-item="r" class="table-tr">
+        <view wx:for="{{formattedSchedule}}" wx:for-item="r" wx:for-index="i" class="table-tr">
           <block>
             <view
               wx:for="{{r}}"
               wx:for-item="c"
-              class="table-td {{c ? 'bg bg-' + c.colorScheme : ''}} {{c && c.isFirst ? 'table-td-top' : ''}} {{c && c.isLast ? 'table-td-bottom' : ''}}"
+              wx:for-index="j"
+              class="table-td {{c ? 'bg bg-' + c.colorScheme : 'table-td-none'}} {{i === 4 || i === 8 ? 'table-td-divider' : ''}} {{c && c.isFirst ? 'table-td-top' : ''}} {{c && c.isLast ? 'table-td-bottom' : ''}}"
+              data-row="{{i}}"
+              data-col="{{j}}"
+              bind:tap="onClickClass"
             >
               <block wx:if="{{c && c.isFirst}}">
                 <view class="wux-text--center wux-ellipsis--l2">{{c.className}}</view>

@@ -124,3 +124,7 @@ page {
 .color-gray {
   color: #777;
 }
+
+.general-hover {
+  opacity: .57;
+}
