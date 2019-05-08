@@ -10,20 +10,20 @@ export interface ICOutputSchedule {
   name: string; // 用户姓名
   schedule: Array<{ // 课程信息
     durationOfClass: string;
+    durationOfClassList: number[];
     durationOfWeek: string;
+    durationOfWeekList: number[];
     classroom: string;
     className: string;
     dayOfWeek: string;
     teacherName: string;
-    _durationOfClass: number[];
-    _durationOfWeek: number[];
     _dayOfWeek: number;
   }>;
   extra: Array<{ // 其他课程
     className: string;
     teacherName: string;
     durationOfWeek: string;
-    _durationOfWeek: number[];
+    durationOfWeekList: number[];
   }>;
   note: Array<{ // 备注
     content: string;
@@ -40,20 +40,9 @@ export interface ICOutputSchedule {
 const postprocessSchedule: IPostprocessFunction<ICOutputSchedule> = (ret) => {
   const r = ret;
   if (!r.error) {
-    [r.data.schedule, r.data.extra].forEach(s => s.forEach(c => {
-      const duration = c.durationOfWeek.split('-').map(x => +x);
-      while (duration.length < 2) {
-        duration.push(duration[0]);
-      }
-      c._durationOfWeek = duration;
-    }));
     r.data.schedule.forEach(c => {
       c._dayOfWeek = +c.dayOfWeek;
-      const duration = c.durationOfClass.split('-').map(x => +x);
-      while (duration.length < 2) {
-        duration.push(duration[0]);
-      }
-      c._durationOfClass = duration;
+      c.classroom.startsWith('教') && (c.classroom = c.classroom.substring(1));
     });
   }
   return r;

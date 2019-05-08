@@ -1,0 +1,49 @@
+<view class="page">
+  <view class="page__bd">
+    <wux-row>
+      <wux-col span="2">
+        <wux-button type="light" block size="small" disabled="{{currentWeek <= 1}}" wux-class="arrow-button" bind:click="toPrevious">
+          <wux-icon type="ios-arrow-back" size="28" />
+        </wux-button>
+      </wux-col>
+      <wux-col span="8">
+        <view class="wux-text--center week-title">第 {{currentWeek}} 周</view>
+      </wux-col>
+      <wux-col span="2">
+        <wux-button type="light" block size="small" disabled="{{currentWeek >= maxWeek}}" wux-class="arrow-button" bind:click="toNext">
+          <wux-icon type="ios-arrow-forward" size="28" />
+        </wux-button>
+      </wux-col>
+    </wux-row>
+
+    <view class="table">
+      <block>
+        <view class="table-tr">
+          <block>
+            <view class="table-th">一</view>
+            <view class="table-th">二</view>
+            <view class="table-th">三</view>
+            <view class="table-th">四</view>
+            <view class="table-th">五</view>
+            <view class="table-th">六</view>
+            <view class="table-th">日</view>
+          </block>
+        </view>
+        <view wx:for="{{formattedSchedule}}" wx:for-item="r" class="table-tr">
+          <block>
+            <view
+              wx:for="{{r}}"
+              wx:for-item="c"
+              class="table-td {{c ? 'bg bg-' + c.colorScheme : ''}} {{c && c.isFirst ? 'table-td-top' : ''}} {{c && c.isLast ? 'table-td-bottom' : ''}}"
+            >
+              <block wx:if="{{c && c.isFirst}}">
+                <view class="wux-text--center wux-ellipsis--l2">{{c.className}}</view>
+                <view class="wux-text--center mt-8">{{c.classroom}}</view>
+              </block>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

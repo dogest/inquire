@@ -1,5 +1,5 @@
 <wux-spin nested spinning="{{status === enumStatus.fetching}}">
-  <view class="qcard">
+  <view class="qcard" bind:tap="onCardClick">
     <wux-card title="{{title}}" extra="" wux-class="qcard-container {{cardClass}}" bordered="{{false}}" showHover>
       <view slot="body" class="qcard-body">
         <slot wx:if="{{status === enumStatus.success}}"></slot>

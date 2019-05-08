@@ -1,10 +1,23 @@
 import pages from './configs/pages';
 import storage from './utils/storage';
 import * as moment from './libs/moment/index';
+import { ICOutputDormitoryEnergy, ICOutputDormitoryHealth } from './contracts/dormitory';
+import { ICOutputScore } from './contracts/score';
+import { ICOutputSchedule } from './contracts/schedule';
+import { ICOutputLibraryBorrow } from './contracts/library';
+import { ICOutputCardBalance } from './contracts/card';
 
 export interface IMyApp {
   userInfoReadyCallback?(res: wx.UserInfo): void;
-  globalData: {};
+  globalData: {
+    resp: {
+      libraryBorrow: ICOutputLibraryBorrow | null;
+      dormitoryEnergy: ICOutputDormitoryEnergy | null;
+      dormitoryHealth: ICOutputDormitoryHealth | null;
+      score: ICOutputScore | null;
+      schedule: ICOutputSchedule | null;
+    },
+  };
 }
 
 App<IMyApp>({
@@ -24,5 +37,13 @@ App<IMyApp>({
     });
     moment.locale('zh-cn');
   },
-  globalData: {},
+  globalData: {
+    resp: {
+      libraryBorrow: null,
+      dormitoryEnergy: null,
+      dormitoryHealth: null,
+      score: null,
+      schedule: null,
+    },
+  },
 });

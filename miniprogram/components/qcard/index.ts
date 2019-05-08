@@ -26,6 +26,10 @@ Component({
       type: String,
       value: '',
     },
+    to: {
+      type: String,
+      value: '',
+    },
   },
 
   /**
@@ -42,6 +46,10 @@ Component({
     fetch() {
       // @ts-ignore
       this.triggerEvent('fetch');
+    },
+    onCardClick() {
+      // @ts-ignore
+      this.properties.status === EnumApiStatus.success && this.data.to && wx.navigateTo({ url: this.data.to });
     },
   },
 });

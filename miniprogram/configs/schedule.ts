@@ -11,6 +11,7 @@ const scheduleConfig = {
     ['19:00', '19:50'],
     ['20:00', '20:50'],
   ],
+  dayNum: 7,
 };
 
 export default scheduleConfig;

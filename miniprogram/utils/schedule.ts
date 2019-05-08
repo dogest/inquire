@@ -24,11 +24,27 @@ export function getClassMoment(weekday: number, classTime: string) {
   return classMoment;
 }
 
+/**
+ * 判断课程在指定周是否要上课
+ * @param {ICOutputSchedule["schedule"][0]["durationOfWeekList"]} durationOfWeekList
+ * @param {ICOutputSchedule["currentWeek"]} currentWeek
+ * @returns {boolean}
+ */
+export function isClassAvailableInSomeWeek(durationOfWeekList: ICOutputSchedule['schedule'][0]['durationOfWeekList'], currentWeek: ICOutputSchedule['currentWeek']) {
+  return !!~durationOfWeekList.indexOf(currentWeek);
+}
+
+/**
+ * 查找下节将要上的课（计算的课程时间范围：现在到当前周的下一个周日）
+ * @param {ICOutputSchedule["currentWeek"]} currentWeek
+ * @param {ICOutputSchedule["schedule"]} schedule
+ * @returns {{dayOfWeek: string; teacherName: string; beginMoment: moment.Moment; durationOfClassList: number[]; durationOfWeekList: number[]; durationOfWeek: string; classroom: string; className: string; currentWeek: number; durationOfClass: string; _dayOfWeek: number} | null}
+ */
 export function findNextPendingClass(currentWeek: ICOutputSchedule['currentWeek'], schedule: ICOutputSchedule['schedule']) {
   const scheduleWithBeginMoment = schedule.map(s => ({
     ...s,
     currentWeek,
-    beginMoment: getClassMoment(s._dayOfWeek, scheduleConfig.classTime[s._durationOfClass[0] - 1][0]),
+    beginMoment: getClassMoment(s._dayOfWeek, scheduleConfig.classTime[s.durationOfClassList[0] - 1][0]),
   }));
   const scheduleWithBeginMomentNextWeek = scheduleWithBeginMoment.map(s => ({
     ...s,
@@ -38,7 +54,7 @@ export function findNextPendingClass(currentWeek: ICOutputSchedule['currentWeek'
   const scheduleD2 = [...scheduleWithBeginMoment, ...scheduleWithBeginMomentNextWeek];
   for (const s of scheduleD2) {
     // 判断教学周
-    if (!(s.currentWeek >= s._durationOfWeek[0] && s.currentWeek <= s._durationOfWeek[1])) {
+    if (!isClassAvailableInSomeWeek(s.durationOfWeekList, s.currentWeek)) {
       continue;
     }
     if (getCurrentMoment().isBefore(s.beginMoment)) {

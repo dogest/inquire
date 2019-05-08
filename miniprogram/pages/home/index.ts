@@ -8,6 +8,9 @@ import pages from '../../configs/pages';
 import { contractSchedule } from '../../contracts/schedule';
 import { findNextPendingClass } from '../../utils/schedule';
 import { getCurrentMoment } from '../../utils/util';
+import { IMyApp } from '../../app';
+
+const app = getApp<IMyApp>();
 
 Page({
 
@@ -15,6 +18,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pages,
     status: {
       card: EnumApiStatus.fetching,
       library: EnumApiStatus.fetching,
@@ -248,8 +252,8 @@ Page({
         let nc: any = null;
         if (nextClass) {
           nc = {
-            durationOfClass: nextClass._durationOfClass,
-            durationOfWeek: nextClass._durationOfWeek,
+            durationOfClassList: nextClass.durationOfClassList,
+            durationOfWeekList: nextClass.durationOfWeekList,
             classroom: nextClass.classroom,
             className: nextClass.className,
             dayOfWeek: nextClass._dayOfWeek,
@@ -263,6 +267,7 @@ Page({
           schedule: nc,
           'status.schedule': EnumApiStatus.success,
         });
+        app.globalData.resp.schedule = ret.data;
       }
     } catch (e) {
     } finally {
@@ -270,6 +275,7 @@ Page({
         this.setData!({
           'status.schedule': EnumApiStatus.fail,
         });
+        app.globalData.resp.schedule = null;
         wx.reportMonitor(EnumReport.scheduleFail, 1);
       }
     }

@@ -17,7 +17,8 @@
         image="../../assets/table.svg"
         card-class="card-bg-schedule"
         status="{{status.schedule}}"
-        footer="{{schedule ? '[' + schedule.beginAfter + '后 | ' + schedule.beginAt + '] ' + schedule.classroom + '·' + schedule.teacherName : ''}}"
+        footer="{{schedule ? '[' + schedule.beginAfter + '后 | ' + schedule.beginAt + '] ' + schedule.classroom : ''}}"
+        to="{{pages.schedule}}"
         bind:fetch="fetchSchedule"
       >
         <text wx:if="{{schedule}}">下节：{{schedule.className}}</text>

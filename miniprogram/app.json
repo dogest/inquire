@@ -5,7 +5,8 @@
     "pages/home/index",
     "pages/license/index",
     "pages/help/index",
-    "pages/about/index"
+    "pages/about/index",
+    "pages/schedule/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -23,6 +24,8 @@
     "wux-card": "./libs/wux-weapp/card/index",
     "wux-spin": "./libs/wux-weapp/spin/index",
     "wux-divider": "./libs/wux-weapp/divider/index",
+    "wux-row": "./libs/wux-weapp/row/index",
+    "wux-col": "./libs/wux-weapp/col/index",
     "wemark": "../libs/wemark/wemark"
   },
   "networkTimeout": {
