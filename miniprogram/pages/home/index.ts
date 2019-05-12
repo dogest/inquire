@@ -138,6 +138,7 @@ Page({
           borrowNum: ret.data.info.length,
           'status.library': EnumApiStatus.success,
         });
+        app.globalData.resp.libraryBorrow = ret.data;
       }
     } catch (e) {
     } finally {
@@ -145,6 +146,7 @@ Page({
         this.setData!({
           'status.library': EnumApiStatus.fail,
         });
+        app.globalData.resp.libraryBorrow = null;
         wx.reportMonitor(EnumReport.libraryBorrowFail, 1);
       }
     }

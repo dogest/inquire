@@ -6,7 +6,8 @@
     "pages/license/index",
     "pages/help/index",
     "pages/about/index",
-    "pages/schedule/index"
+    "pages/schedule/index",
+    "pages/library/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -27,6 +28,8 @@
     "wux-divider": "./libs/wux-weapp/divider/index",
     "wux-row": "./libs/wux-weapp/row/index",
     "wux-col": "./libs/wux-weapp/col/index",
+    "wux-accordion": "./libs/wux-weapp/accordion/index",
+    "wux-accordion-group": "./libs/wux-weapp/accordion-group/index",
     "wemark": "../libs/wemark/wemark"
   },
   "networkTimeout": {

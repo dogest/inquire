@@ -18,7 +18,7 @@ export interface ICOutputLibraryBorrow {
     title: string; // 图书名
     author: string; // 图书作者
     borrowDate: string; // (xxxx-yy-zz)	借阅时间
-    backDate: string; // 应还时间
+    backDate: string; // 还书时间
     barCode: string; // bar_code
     bookUrl: string; // 在山东理工大学图书馆网站中的链接
     site: string; // 借书地址

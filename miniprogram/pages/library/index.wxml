@@ -1,0 +1,24 @@
+<view class="page">
+  <view class="page__bd wux-ellipsis">
+    <wux-accordion-group title="当前借阅" default-current="{{infoIdxs}}">
+      <wux-accordion wx:for="{{info}}">
+        <view slot="header" class="wux-ellipsis">{{item.title}}</view>
+        <view class="wux-ellipsis">作者信息：{{item.author}}</view>
+        <view class="wux-ellipsis">借书地址：{{item.site}}</view>
+        <view class="wux-ellipsis">借书时间：{{item.borrowDate}}</view>
+        <view class="wux-ellipsis">应还时间：{{item.backDate}}</view>
+        <view class="wux-ellipsis">续借次数：{{item.borrowCnt}}</view>
+      </wux-accordion>
+    </wux-accordion-group>
+
+    <wux-accordion-group title="历史借阅" default-current="{{historyIdxs}}">
+      <wux-accordion wx:for="{{history}}">
+        <view slot="header" class="wux-ellipsis">{{item.title}}</view>
+        <view class="wux-ellipsis">作者信息：{{item.author}}</view>
+        <view class="wux-ellipsis">借书地址：{{item.site}}</view>
+        <view class="wux-ellipsis">借书时间：{{item.borrowDate}}</view>
+        <view class="wux-ellipsis">还书时间：{{item.backDate}}</view>
+      </wux-accordion>
+    </wux-accordion-group>
+  </view>
+</view>

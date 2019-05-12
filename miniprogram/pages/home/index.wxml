@@ -64,7 +64,8 @@
         image="../../assets/read.svg"
         card-class="card-bg-library"
         status="{{status.library}}"
-        footer="数据来源：图书馆"
+        footer="查看详情"
+        to="{{pages.library}}"
         bind:fetch="fetchLibrary"
       >
         <text>在借：{{borrowNum}} 本</text>
