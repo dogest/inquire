@@ -2,7 +2,7 @@
   <view class="page__bd" style="overflow-x: hidden;">
     <wux-row>
       <wux-col span="2">
-        <wux-button type="light" block size="small" disabled="{{currentWeek <= 1}}" wux-class="arrow-button" bind:click="toPrevious">
+        <wux-button type="stable" block size="small" disabled="{{currentWeek <= 1}}" wux-class="arrow-button" bind:click="toPrevious">
           <wux-icon type="ios-arrow-round-back" size="28" />
         </wux-button>
       </wux-col>
@@ -10,7 +10,7 @@
         <view class="wux-text--center week-title">第 {{currentWeek}} 周{{d && d.currentWeek === currentWeek ? '（当前周）' : ''}}</view>
       </wux-col>
       <wux-col span="2">
-        <wux-button type="light" block size="small" disabled="{{currentWeek >= maxWeek}}" wux-class="arrow-button" bind:click="toNext">
+        <wux-button type="stable" block size="small" disabled="{{currentWeek >= maxWeek}}" wux-class="arrow-button" bind:click="toNext">
           <wux-icon type="ios-arrow-round-forward" size="28" />
         </wux-button>
       </wux-col>
