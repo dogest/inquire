@@ -158,7 +158,7 @@ Page({
       const info = formattedSchedule[row][col]!;
       wx.showModal({
         title: info!.className,
-        content: `教室：${info.classroom}\n教师：${info.teacherName}\n开课时间：${info.durationOfWeek} 周，${info.durationOfClass} 节`,
+        content: `教室：${info.classroom}\n教师：${info.teacherName}\n开课时间：${info.durationOfWeek} 周`,
         showCancel: false,
       });
     }
