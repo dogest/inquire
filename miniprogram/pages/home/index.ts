@@ -77,6 +77,7 @@ Page({
   async onPullDownRefresh() {
     try {
       await this.fetchAll();
+    } catch (e) {
     } finally {
       wx.stopPullDownRefresh({});
     }

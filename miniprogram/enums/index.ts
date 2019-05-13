@@ -22,4 +22,5 @@ export enum EnumReport {
   libraryBorrowFail = '6',
   userTokenFail = '7',
   scheduleFail = '8',
+  cardConsumeFail = '9',
 }

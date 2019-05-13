@@ -6,7 +6,8 @@
         image="../../assets/creditcard.svg"
         card-class="card-bg-card"
         status="{{status.card}}"
-        footer="数据来源：校园一卡通自助查询平台"
+        footer="查看详情"
+        to="{{pages.card}}"
         bind:fetch="fetchCard"
       >
         <text>余额：{{balance}} 元</text>

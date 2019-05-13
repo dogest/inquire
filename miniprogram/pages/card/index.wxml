@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="page__bd">
+    <wux-accordion-group wx:if="{{status !== EnumApiStatus.fetching}}" title="最近消费" label="{{consume.length ? undefined : '暂无记录'}}" default-current="{{consumeIdxs}}">
+      <wux-accordion wx:for="{{consume}}">
+        <view slot="header" class="wux-ellipsis" style="width: 100%;">
+          <text style="width: 33%;">¥ {{item.amount}}</text>
+          <text class="wux-pull-right mr-16" style="color: #999;">{{item.time}}</text>
+        </view>
+        <view class="wux-ellipsis">消费原因：{{item.reason}}</view>
+        <view class="wux-ellipsis">消费地点：{{item.position}}</view>
+        <view class="wux-ellipsis">消费终端：{{item.termName}}</view>
+        <view class="wux-ellipsis">消费后余额：¥ {{item.balance}}</view>
+      </wux-accordion>
+    </wux-accordion-group>
+  </view>
+</view>

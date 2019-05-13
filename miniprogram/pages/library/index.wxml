@@ -1,6 +1,6 @@
 <view class="page">
-  <view class="page__bd wux-ellipsis">
-    <wux-accordion-group title="当前借阅" default-current="{{infoIdxs}}">
+  <view class="page__bd">
+    <wux-accordion-group title="当前借阅" label="{{info.length ? undefined : '暂无记录'}}" default-current="{{infoIdxs}}">
       <wux-accordion wx:for="{{info}}">
         <view slot="header" class="wux-ellipsis">{{item.title}}</view>
         <view class="wux-ellipsis">作者信息：{{item.author}}</view>
@@ -11,7 +11,7 @@
       </wux-accordion>
     </wux-accordion-group>
 
-    <wux-accordion-group title="历史借阅" default-current="{{historyIdxs}}">
+    <wux-accordion-group title="历史借阅" label="{{history.length ? undefined : '暂无记录'}}" default-current="{{historyIdxs}}">
       <wux-accordion wx:for="{{history}}">
         <view slot="header" class="wux-ellipsis">{{item.title}}</view>
         <view class="wux-ellipsis">作者信息：{{item.author}}</view>

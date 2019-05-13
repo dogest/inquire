@@ -7,7 +7,8 @@
     "pages/help/index",
     "pages/about/index",
     "pages/schedule/index",
-    "pages/library/index"
+    "pages/library/index",
+    "pages/card/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
