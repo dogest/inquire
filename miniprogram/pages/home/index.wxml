@@ -55,6 +55,7 @@
         card-class="card-bg-score"
         status="{{status.score}}"
         footer="数据来源：教学综合信息服务平台"
+        to="{{pages.score}}"
         bind:fetch="fetchScore"
       >
         <text>绩点：{{score}}</text>

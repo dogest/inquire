@@ -8,7 +8,8 @@
     "pages/about/index",
     "pages/schedule/index",
     "pages/library/index",
-    "pages/card/index"
+    "pages/card/index",
+    "pages/score/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

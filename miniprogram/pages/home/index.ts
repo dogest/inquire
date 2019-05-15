@@ -168,6 +168,7 @@ Page({
           score: ret.data.grade,
           'status.score': EnumApiStatus.success,
         });
+        app.globalData.resp.score = ret.data;
       }
     } catch (e) {
     } finally {
@@ -175,6 +176,7 @@ Page({
         this.setData!({
           'status.score': EnumApiStatus.fail,
         });
+        app.globalData.resp.score = null;
         wx.reportMonitor(EnumReport.scoreFail, 1);
       }
     }
@@ -265,7 +267,6 @@ Page({
             beginAt: nextClass.beginMoment.format('ddd HH:mm'),
           };
         }
-        console.log('nc', nc);
         this.setData!({
           schedule: nc,
           'status.schedule': EnumApiStatus.success,

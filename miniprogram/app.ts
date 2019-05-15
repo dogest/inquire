@@ -5,7 +5,6 @@ import { ICOutputDormitoryEnergy, ICOutputDormitoryHealth } from './contracts/do
 import { ICOutputScore } from './contracts/score';
 import { ICOutputSchedule } from './contracts/schedule';
 import { ICOutputLibraryBorrow } from './contracts/library';
-import { ICOutputCardBalance } from './contracts/card';
 
 export interface IMyApp {
   userInfoReadyCallback?(res: wx.UserInfo): void;

@@ -1,0 +1,12 @@
+<view class="page">
+  <view class="page__bd">
+    <wux-accordion-group title="课程成绩" label="{{scores.length ? undefined : '暂无记录'}}" default-current="{{scoresIdxs}}">
+      <wux-accordion wx:for="{{scores}}">
+        <view slot="header" class="wux-ellipsis">{{item.courseName}}</view>
+        <view class="wux-ellipsis">学期：{{item.year}} {{item.semester}}</view>
+        <view class="wux-ellipsis">课程性质：{{item.courseNature}}</view>
+        <view class="wux-ellipsis">教师：{{item.teacher}}（{{item.teacherCollege}}）</view>
+      </wux-accordion>
+    </wux-accordion-group>
+  </view>
+</view>
