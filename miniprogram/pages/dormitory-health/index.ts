@@ -18,8 +18,18 @@ Page({
   onLoad(_query: { [queryKey: string]: string }) {
     const d = app.globalData.resp.dormitoryHealth;
     if (d) {
+      const dormitoryHealth: ICOutputDormitoryHealth = [];
+      let lastWeek = Number.MAX_SAFE_INTEGER;
+      for (const item of d) {
+        if (+item.week < lastWeek) {
+          dormitoryHealth.push(item);
+          lastWeek = +item.week;
+        } else {
+          break;
+        }
+      }
       this.setData!({
-        dormitoryHealth: d,
+        dormitoryHealth,
       });
     }
   },

@@ -31,7 +31,8 @@
         image="../../assets/thunderbolt.svg"
         card-class="card-bg-dormitory-energy"
         status="{{status.dormitoryEnergy}}"
-        footer="数据来源：后勤服务大厅"
+        footer="查看详情"
+        to="{{pages.dormitoryEnergy}}"
         bind:fetch="fetchDormitoryEnergy"
       >
         <text>剩余：{{dormitoryEnergy}} 度</text>
@@ -42,7 +43,7 @@
         image="../../assets/home.svg"
         card-class="card-bg-dormitory-health"
         status="{{status.dormitoryHealth}}"
-        footer="数据来源：网上服务大厅"
+        footer="查看详情"
         to="{{pages.dormitoryHealth}}"
         bind:fetch="fetchDormitoryHealth"
       >
@@ -55,7 +56,7 @@
         image="../../assets/rise.svg"
         card-class="card-bg-score"
         status="{{status.score}}"
-        footer="数据来源：教学综合信息服务平台"
+        footer="查看详情"
         to="{{pages.score}}"
         bind:fetch="fetchScore"
       >

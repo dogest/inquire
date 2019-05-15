@@ -3,14 +3,20 @@ import { ICOutputScore } from '../../contracts/score';
 
 const app = getApp<IMyApp>();
 
+interface IScoreSemesterData {
+  semesterName: string;
+  schoolYear: ICOutputScore['scores'][0]['schoolYear'];
+  semester: ICOutputScore['scores'][0]['semester'];
+  data: ICOutputScore['scores'];
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    scores: [] as ICOutputScore['scores'],
-    scoresIdxs: [] as string[],
+    scores: [] as IScoreSemesterData[],
   },
 
   /**
@@ -19,9 +25,23 @@ Page({
   onLoad(_query: { [queryKey: string]: string }) {
     const d = app.globalData.resp.score;
     if (d) {
+      const scores: IScoreSemesterData[] = [];
+      for (const s of d.scores) {
+        const semesterName = `${s.schoolYear}_${s.semester}`;
+        const semesterSection = scores.find(se => se.semesterName === semesterName);
+        if (!semesterSection) {
+          scores.push({
+            semesterName,
+            schoolYear: s.schoolYear,
+            semester: s.semester,
+            data: [s],
+          });
+        } else {
+          semesterSection.data.push(s);
+        }
+      }
       this.setData!({
-        scores: d.scores,
-        scoresIdxs: d.scores.map((_item, index) => `${index}`),
+        scores,
       });
     }
   },
