@@ -9,7 +9,8 @@
     "pages/schedule/index",
     "pages/library/index",
     "pages/card/index",
-    "pages/score/index"
+    "pages/score/index",
+    "pages/dormitory-health/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

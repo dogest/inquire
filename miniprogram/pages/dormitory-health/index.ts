@@ -1,5 +1,5 @@
 import { IMyApp } from '../../app';
-import { ICOutputLibraryBorrow } from '../../contracts/library';
+import { ICOutputDormitoryHealth } from '../../contracts/dormitory';
 
 const app = getApp<IMyApp>();
 
@@ -9,23 +9,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: [] as ICOutputLibraryBorrow['info'],
-    infoIdxs: [] as string[],
-    history: [] as ICOutputLibraryBorrow['history'],
-    historyIdxs: [] as string[],
+    dormitoryHealth: [] as ICOutputDormitoryHealth,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(_query: { [queryKey: string]: string }) {
-    const d = app.globalData.resp.libraryBorrow;
+    const d = app.globalData.resp.dormitoryHealth;
     if (d) {
       this.setData!({
-        info: d.info,
-        infoIdxs: d.info.map((_item, index) => `${index}`),
-        history: d.history,
-        historyIdxs: d.history.map((_item, index) => `${index}`),
+        dormitoryHealth: d,
       });
     }
   },

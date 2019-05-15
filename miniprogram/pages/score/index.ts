@@ -9,7 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    d: app.globalData.resp.score,
     scores: [] as ICOutputScore['scores'],
     scoresIdxs: [] as string[],
   },
@@ -21,7 +20,6 @@ Page({
     const d = app.globalData.resp.score;
     if (d) {
       this.setData!({
-        d,
         scores: d.scores,
         scoresIdxs: d.scores.map((_item, index) => `${index}`),
       });

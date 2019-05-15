@@ -1,0 +1,9 @@
+<view class="page">
+  <view class="page__bd">
+    <wux-accordion-group title="历史卫生成绩" label="{{dormitoryHealth.length ? undefined : '暂无记录'}}" controlled>
+      <wux-accordion wx:for="{{dormitoryHealth}}" showArrow="{{false}}">
+        <view slot="header" class="wux-ellipsis">第 {{item.week}} 周：{{item.score}}</view>
+      </wux-accordion>
+    </wux-accordion-group>
+  </view>
+</view>

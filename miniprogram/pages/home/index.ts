@@ -198,6 +198,7 @@ Page({
           dormitoryHealthWeek: ret.data[0] ? ret.data[0].week : null,
           'status.dormitoryHealth': EnumApiStatus.success,
         });
+        app.globalData.resp.dormitoryHealth = ret.data;
       }
     } catch (e) {
     } finally {
@@ -205,6 +206,7 @@ Page({
         this.setData!({
           'status.dormitoryHealth': EnumApiStatus.fail,
         });
+        app.globalData.resp.dormitoryHealth = null;
         wx.reportMonitor(EnumReport.dormitoryHealthFail, 1);
       }
     }

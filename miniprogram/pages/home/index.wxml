@@ -34,7 +34,7 @@
         footer="数据来源：后勤服务大厅"
         bind:fetch="fetchDormitoryEnergy"
       >
-        <text>剩余电量：{{dormitoryEnergy}} 度</text>
+        <text>剩余：{{dormitoryEnergy}} 度</text>
       </qcard>
 
       <qcard
@@ -43,6 +43,7 @@
         card-class="card-bg-dormitory-health"
         status="{{status.dormitoryHealth}}"
         footer="数据来源：网上服务大厅"
+        to="{{pages.dormitoryHealth}}"
         bind:fetch="fetchDormitoryHealth"
       >
         <text wx:if="{{dormitoryHealthWeek}}">第 {{dormitoryHealthWeek}} 周成绩：{{dormitoryHealth}}</text>
