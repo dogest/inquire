@@ -10,7 +10,8 @@
     "pages/library/index",
     "pages/card/index",
     "pages/score/index",
-    "pages/dormitory-health/index"
+    "pages/dormitory-health/index",
+    "pages/dormitory-energy/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

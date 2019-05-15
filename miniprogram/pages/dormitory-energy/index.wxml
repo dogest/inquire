@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="page__bd">
+    <wux-accordion-group wx:if="{{dormitoryEnergy}}" title="{{dormitoryEnergy.room}} 的电量详情" current="{{['0']}}" controlled>
+      <wux-accordion showArrow="{{false}}">
+        <view slot="header" class="wux-ellipsis">剩余：{{dormitoryEnergy.energy}} 度</view>
+        <view class="wux-ellipsis">预计可用：{{dormitoryEnergy.lower < dormitoryEnergy.upper ? dormitoryEnergy.lower + '-' + dormitoryEnergy.upper : dormitoryEnergy.lower}} 天</view>
+        <view class="wux-ellipsis">当前状态：{{dormitoryEnergy.status}}</view>
+        <view class="wux-ellipsis">更新时间：{{dormitoryEnergy.date}}</view>
+      </wux-accordion>
+    </wux-accordion-group>
+    <view wx:else style="display: flex; height: 800rpx;">
+      <view style="margin: auto;">暂无数据</view>
+    </view>
+  </view>
+</view>

@@ -230,6 +230,7 @@ Page({
             dormitoryEnergy: ret.data.energy,
             'status.dormitoryEnergy': EnumApiStatus.success,
           });
+          app.globalData.resp.dormitoryEnergy = ret.data;
         }
       }
     } catch (e) {
@@ -238,6 +239,7 @@ Page({
         this.setData!({
           'status.dormitoryEnergy': EnumApiStatus.fail,
         });
+        app.globalData.resp.dormitoryEnergy = null;
         wx.reportMonitor(EnumReport.dormitoryEnergyFail, 1);
       }
     }
