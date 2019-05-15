@@ -31,7 +31,7 @@
         image="../../assets/thunderbolt.svg"
         card-class="card-bg-dormitory-energy"
         status="{{status.dormitoryEnergy}}"
-        footer="查看详情"
+        footer="{{dormitoryEnergyAvailableUsage ? '预计可用 ' + dormitoryEnergyAvailableUsage + ' 天' : ''}}"
         to="{{pages.dormitoryEnergy}}"
         bind:fetch="fetchDormitoryEnergy"
       >

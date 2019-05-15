@@ -1,6 +1,7 @@
 import { IMyApp } from '../../app';
 import { contractCardConsume, ICOutputCardConsume } from '../../contracts/card';
 import { EnumApiStatus, EnumReport } from '../../enums/index';
+import { getRandomLoadingText } from '../../utils/util';
 
 const app = getApp<IMyApp>();
 
@@ -20,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(_query: { [queryKey: string]: string }) {
-    wx.startPullDownRefresh();
+    this.fetchCardConsume(true);
   },
 
   /**
@@ -70,13 +71,15 @@ Page({
 
   },
 
-  async fetchCardConsume() {
+  async fetchCardConsume(showLoading: boolean = false) {
     this.setData!({
       status: EnumApiStatus.fetching,
     });
     let success = false;
     try {
-      const ret = await contractCardConsume(undefined);
+      const ret = await contractCardConsume(undefined, {
+        loadingText: showLoading ? getRandomLoadingText() : undefined,
+      });
       if (!ret.error) {
         success = true;
         this.setData!({

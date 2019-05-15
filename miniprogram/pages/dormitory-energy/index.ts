@@ -1,5 +1,6 @@
 import { IMyApp } from '../../app';
 import { ICOutputDormitoryEnergy } from '../../contracts/dormitory';
+import { formatAvailableUsage } from '../../utils/dormitory-energy';
 
 const app = getApp<IMyApp>();
 
@@ -10,6 +11,7 @@ Page({
    */
   data: {
     dormitoryEnergy: null as ICOutputDormitoryEnergy | null,
+    availableUsage: '',
   },
 
   /**
@@ -20,6 +22,7 @@ Page({
     if (d) {
       this.setData!({
         dormitoryEnergy: d,
+        availableUsage: formatAvailableUsage(d.lower, d.upper),
       });
     }
   },

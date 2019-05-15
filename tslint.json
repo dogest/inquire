@@ -24,6 +24,11 @@
     "no-console": false,
     "no-bitwise": false,
     "member-ordering": false,
-    "arrow-parens": false
+    "arrow-parens": false,
+    "variable-name": [
+      true,
+      "check-format",
+      "allow-leading-underscore"
+    ]
   }
 }

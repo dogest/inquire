@@ -19,3 +19,8 @@ const formatNumber = (n: number) => {
 export function getCurrentMoment() {
   return moment().utcOffset(8);
 }
+
+export function getRandomLoadingText() {
+  const loadingTexts = ['请稍候', '等待服务器', '一等', '努力请求中', '拼命请求中', '抽空请求中'];
+  return loadingTexts[Math.floor(Math.random() * loadingTexts.length)];
+}

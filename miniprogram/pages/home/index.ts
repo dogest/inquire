@@ -9,6 +9,7 @@ import { contractSchedule } from '../../contracts/schedule';
 import { findNextPendingClass } from '../../utils/schedule';
 import { getCurrentMoment } from '../../utils/util';
 import { IMyApp } from '../../app';
+import { formatAvailableUsage } from '../../utils/dormitory-energy';
 
 const app = getApp<IMyApp>();
 
@@ -33,6 +34,7 @@ Page({
     dormitoryHealth: undefined,
     dormitoryHealthWeek: undefined,
     dormitoryEnergy: undefined,
+    dormitoryEnergyAvailableUsage: undefined,
     schedule: undefined,
   },
 
@@ -228,6 +230,7 @@ Page({
           success = true;
           this.setData!({
             dormitoryEnergy: ret.data.energy,
+            dormitoryEnergyAvailableUsage: formatAvailableUsage(ret.data.lower, ret.data.upper),
             'status.dormitoryEnergy': EnumApiStatus.success,
           });
           app.globalData.resp.dormitoryEnergy = ret.data;

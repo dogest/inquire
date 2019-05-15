@@ -2,8 +2,7 @@ import { contractUserInfo, contractUserToken } from '../../contracts/user';
 import pages from '../../configs/pages';
 import generalConfigs from '../../configs/general';
 import storage from '../../utils/storage';
-
-const loadingTexts = ['请稍候', '正在绑定', '等待服务器', '一等', '努力请求中', '拼命请求中', '抽空请求中'];
+import { getRandomLoadingText } from '../../utils/util';
 
 Page({
 
@@ -96,7 +95,7 @@ Page({
     this.setData!({
       loading: true,
     });
-    const loadingText = loadingTexts[Math.floor(Math.random() * loadingTexts.length)];
+    const loadingText = getRandomLoadingText();
     wx.showLoading({
       title: loadingText,
     });
