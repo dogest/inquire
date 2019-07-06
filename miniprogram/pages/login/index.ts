@@ -111,13 +111,14 @@ Page({
         await storage.setTokenExpires(`${Date.now() + generalConfigs.tokenLifetime}`);
         await storage.setUserId(this.data.userId);
         await storage.setPassword(this.data.password);
-        // 请求用户信息
-        const infoRet = await contractUserInfo();
-        if (!infoRet.error) {
-          const { name, department, floor, room } = infoRet.data;
-          await storage.setUserInfo({ name, department, floor, room });
-          success = true;
-        }
+        success = true;
+        // // 请求用户信息
+        // const infoRet = await contractUserInfo();
+        // if (!infoRet.error) {
+        //   const { name, department, floor, room } = infoRet.data;
+        //   await storage.setUserInfo({ name, department, floor, room });
+        //   success = true;
+        // }
       }
     } finally {
       this.setData!({

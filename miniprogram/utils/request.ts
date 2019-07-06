@@ -46,8 +46,9 @@ async function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiR
       data,
       header,
       success: (res) => {
+        console.log('req done', options);
         if (res.statusCode >= 500) {
-          console.error('req fail with code', res.statusCode, res.data);
+          console.error('resp fail', res.statusCode, res.data);
           wx.reportMonitor(EnumReport.resp5xx, 1);
           autoError === 'toast' && wx.showToast({
             title: '服务器错误，请稍后再试',
@@ -61,7 +62,7 @@ async function wxRequest(options: IWXRequestOptions): Promise<IApiResponse<IApiR
           });
           reject(res);
         } else {
-          console.log('req success with code', res.statusCode, res.data);
+          console.log('resp success', res.statusCode, res.data);
           res.statusCode === 403 && wx.reportMonitor(EnumReport.resp403, 1);
           const d = res.data as IApiResponse<IApiResponseDataType>;
           if (d.error) {

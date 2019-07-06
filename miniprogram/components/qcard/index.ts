@@ -52,4 +52,8 @@ Component({
       this.properties.status === EnumApiStatus.success && this.data.to && wx.navigateTo({ url: this.data.to });
     },
   },
+
+  options: {
+    styleIsolation: 'shared',
+  },
 });

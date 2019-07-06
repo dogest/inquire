@@ -24,4 +24,5 @@
   text-align: right;
   height: 150rpx;
   width: 150rpx;
+  opacity: .7;
 }

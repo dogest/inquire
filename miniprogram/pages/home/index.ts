@@ -299,7 +299,7 @@ Page({
       this.fetchLibrary(),
       this.fetchScore(),
       this.fetchDormitoryHealth(),
-      this.fetchDormitoryEnergy(),
+      // this.fetchDormitoryEnergy(),
       this.fetchSchedule(),
     ]);
   },

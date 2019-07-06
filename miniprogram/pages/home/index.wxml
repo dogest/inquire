@@ -6,11 +6,9 @@
         image="../../assets/creditcard.svg"
         card-class="card-bg-card"
         status="{{status.card}}"
-        footer="查看详情"
-        to="{{pages.card}}"
         bind:fetch="fetchCard"
       >
-        <text>余额：{{balance}} 元</text>
+        <text class="wux-ellipsis">余额：{{balance}} 元</text>
       </qcard>
 
       <qcard
@@ -22,21 +20,21 @@
         to="{{pages.schedule}}"
         bind:fetch="fetchSchedule"
       >
-        <text wx:if="{{schedule}}">下节：{{schedule.className}}</text>
-        <text wx:else>暂无课程</text>
+        <text wx:if="{{schedule}}" class="wux-ellipsis">下节：{{schedule.className}}</text>
+        <text wx:else class="wux-ellipsis">暂无课程</text>
       </qcard>
 
-      <qcard
-        title="宿舍电量"
-        image="../../assets/thunderbolt.svg"
-        card-class="card-bg-dormitory-energy"
-        status="{{status.dormitoryEnergy}}"
-        footer="{{dormitoryEnergyAvailableUsage ? '预计可用 ' + dormitoryEnergyAvailableUsage + ' 天' : ''}}"
-        to="{{pages.dormitoryEnergy}}"
-        bind:fetch="fetchDormitoryEnergy"
-      >
-        <text>剩余：{{dormitoryEnergy}} 度</text>
-      </qcard>
+<!--      <qcard-->
+<!--        title="宿舍电量"-->
+<!--        image="../../assets/thunderbolt.svg"-->
+<!--        card-class="card-bg-dormitory-energy"-->
+<!--        status="{{status.dormitoryEnergy}}"-->
+<!--        footer="{{dormitoryEnergyAvailableUsage ? '预计可用 ' + dormitoryEnergyAvailableUsage + ' 天' : ''}}"-->
+<!--        to="{{pages.dormitoryEnergy}}"-->
+<!--        bind:fetch="fetchDormitoryEnergy"-->
+<!--      >-->
+<!--        <text>剩余：{{dormitoryEnergy}} 度</text>-->
+<!--      </qcard>-->
 
       <qcard
         title="宿舍卫生"
@@ -47,8 +45,8 @@
         to="{{pages.dormitoryHealth}}"
         bind:fetch="fetchDormitoryHealth"
       >
-        <text wx:if="{{dormitoryHealthWeek}}">第 {{dormitoryHealthWeek}} 周成绩：{{dormitoryHealth}}</text>
-        <text wx:else>暂无卫生成绩</text>
+        <text wx:if="{{dormitoryHealthWeek}}" class="wux-ellipsis">第 {{dormitoryHealthWeek}} 周成绩：{{dormitoryHealth}}</text>
+        <text wx:else class="wux-ellipsis">暂无卫生成绩</text>
       </qcard>
 
       <qcard
@@ -60,7 +58,7 @@
         to="{{pages.score}}"
         bind:fetch="fetchScore"
       >
-        <text>绩点：{{score}}</text>
+        <text class="wux-ellipsis">绩点：{{score}}</text>
       </qcard>
 
       <qcard
@@ -72,7 +70,7 @@
         to="{{pages.library}}"
         bind:fetch="fetchLibrary"
       >
-        <text>在借：{{borrowNum}} 本</text>
+        <text class="wux-ellipsis">在借：{{borrowNum}} 本</text>
       </qcard>
     </wux-wing-blank>
 

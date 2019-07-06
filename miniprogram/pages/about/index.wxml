@@ -2,7 +2,10 @@
   <view class="container">
     <view class="main">
       <image class="icon" src="../../assets/inquire_icon.png"></image>
-      <text style="font-size: 45rpx; font-weight: 500;">抽空查询</text>
+      <view>
+        <text style="font-size: 45rpx; font-weight: 500;">抽空查询</text>
+        <text class="ml-8" style="font-size: 25rpx; position: absolute;">Reborn</text>
+      </view>
 
       <wux-divider text="开发者" style="margin-top: 105rpx;" />
       <text class="mt-20 color-gray">小程序</text>
